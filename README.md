@@ -5,4 +5,4 @@ Shabana Mehr\
 Trevor Hughes\
 Jason Graves\
 Christopher Jones\
-Jeffrey Lor\
+Jeffrey Lor
