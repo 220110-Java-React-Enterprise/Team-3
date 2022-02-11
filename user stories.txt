@@ -1,0 +1,13 @@
+USER STORIES
+
+as user
+-can register
+-can log in
+-add a game to backlog
+-give a game in my backlog a rating
+-give a game in my backlog review
+
+
+as admin
+-Modify a user's backlog
+-View all user's backlog
