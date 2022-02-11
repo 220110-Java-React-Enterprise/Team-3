@@ -6,7 +6,9 @@ as user
 -add a game to backlog
 -give a game in my backlog a rating
 -give a game in my backlog review
-
+-can add another user as a friend
+-can view my friends in a list
+-can view my friends reviews and ratings
 
 as admin
 -Modify a user's backlog
