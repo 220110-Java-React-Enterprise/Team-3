@@ -43,7 +43,6 @@ Your team will need to work with the trainer to come up with a satisfactory list
 * As a user, I can view my backlog.
 * As a user, I can add another user as a friend.
 * As a user, I can view a friend's backlog.
-
 * As an admin, I an modify a user's backlog.
 * As an admin, I can view all user backlogs.
 
