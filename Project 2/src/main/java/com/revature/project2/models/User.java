@@ -1,4 +1,4 @@
-package models;
+package com.revature.project2.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,10 +7,9 @@ import javax.persistence.Id;
 /**
  * @Author Jason, Shabana
  */
-
-
 @Entity
 public class User {
+
     @Id
     private int user_id;
     @Column

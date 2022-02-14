@@ -1,17 +1,16 @@
-package controllers;
+package com.revature.project2.controllers;
 
-import models.User;
+import com.revature.project2.models.User;
+import com.revature.project2.repo.ReviewRepo;
+import com.revature.project2.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import repo.ReviewRepo;
-import repo.UserRepo;
 import java.util.Optional;
 
 /**
  * @Author Jason, Shabana
  */
-
 @RestController
 @RequestMapping("/User")
 public class UserController {

@@ -1,17 +1,13 @@
+package com.revature.project2.repo;
 
-package repo;
-
-import models.User;
+import com.revature.project2.models.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
  * @Author Jason, Shabana
  */
-
 @Repository
-public interface UserRepo extends JpaRepository <User,Integer>{
-
-    //create a .save in here? or is it in JpaRepository?
+public interface ReviewRepo extends JpaRepository<Review, Integer> {
 
 }

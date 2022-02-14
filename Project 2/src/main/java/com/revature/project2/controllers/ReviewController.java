@@ -1,20 +1,17 @@
-package controllers;
+package com.revature.project2.controllers;
 
-import models.Review;
-import models.User;
+import com.revature.project2.models.Review;
+import com.revature.project2.repo.ReviewRepo;
+import com.revature.project2.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import repo.ReviewRepo;
-import repo.UserRepo;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @Author Jason, Shabana
  */
-
 @RestController
 @RequestMapping("/Review")
 public class ReviewController {
@@ -44,7 +41,6 @@ public class ReviewController {
         List<Review> result = null;
         //code to get all reviews
 
-
         return result;
     }
 
@@ -60,11 +56,7 @@ public class ReviewController {
     @ResponseStatus(HttpStatus.OK)
     public void deleteReview(@PathVariable int ref_id){
 
-
-
-
             //code to delete account
-
 
         }
 

@@ -1,4 +1,4 @@
-package models;
+package com.revature.project2.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,9 +8,9 @@ import javax.persistence.OneToOne;
 /**
  * @Author Jason, Shabana
  */
-
 @Entity
 public class Review {
+
     @Id
     private int ref_id;
 

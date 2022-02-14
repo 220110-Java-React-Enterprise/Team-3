@@ -2,15 +2,12 @@ package com.revature.project2.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * @Author Trevor, Jeffrey, CJ
  */
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GameList {
+
     private Game[] results;
 
     public GameList() {

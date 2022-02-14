@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 /**
  * @Author Trevor, Jeffrey, CJ
  */
-
 @Repository
 public interface GameRepo extends JpaRepository<Game, Integer> {
 }
