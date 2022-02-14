@@ -13,7 +13,7 @@ public class RAWGGameAPI {
 
     public static void main(String[] args) throws JsonProcessingException {
         RestTemplate rest = new RestTemplate();
-        String resourceUrl = "https://api.rawg.io/api/games?key=2a14caa2fcd34ff3bc75643080973f91";
+        String resourceUrl = "";
         ResponseEntity<String> response = rest.getForEntity(resourceUrl, String.class);
 //        ObjectMapper mapper = new ObjectMapper();
 //        GameList list = mapper.readValue(response.toString(), GameList.class);
