@@ -1,5 +1,7 @@
 package com.revature.project2.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.List;
  * Game POJO
  */
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Game {
     @Id
     @Column(name = "game_id")
@@ -135,5 +138,21 @@ public class Game {
 
     public void setScreenshots(List<String> screenshots) {
         this.screenshots = screenshots;
+    }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "gameID=" + gameID +
+                ", name='" + name + '\'' +
+                ", released=" + released +
+                ", backgroundImage='" + backgroundImage + '\'' +
+                ", metacritic=" + metacritic +
+                ", platforms=" + platforms +
+                ", genres=" + genres +
+                ", tags=" + tags +
+                ", esrbRating='" + esrbRating + '\'' +
+                ", screenshots=" + screenshots +
+                '}';
     }
 }
