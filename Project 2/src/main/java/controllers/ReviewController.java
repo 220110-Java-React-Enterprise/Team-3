@@ -14,7 +14,7 @@ import java.util.Optional;
 /**
  * @Author Jason, Shabana
  */
-
+//class needs exception handling
 @RestController
 @RequestMapping("/Review")
 public class ReviewController {
@@ -34,7 +34,7 @@ public class ReviewController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void newReviewOfGameForUser(@RequestBody Review review){
         reviewRepo.save(review);
-        //should I be writing logic checks in here?
+
 
     }
 
@@ -42,8 +42,11 @@ public class ReviewController {
     @ResponseStatus(HttpStatus.OK)
     public List<Review> getAllReviewsForUser(@PathVariable int user_id){
         List<Review> result = null;
-        //code to get all reviews
-
+        Optional<Review> optionalReview = reviewRepo.findById(user_id);
+        //ask around about how this one is supposed to
+        //maybe some kind of while statement?
+        if(optionalReview.isPresent())
+            result.add(optionalReview.get());
 
         return result;
     }
@@ -51,24 +54,16 @@ public class ReviewController {
     @RequestMapping(value = "/{accountId}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void updateReview(@RequestBody Review review, @PathVariable int ref_id){
-
-        //code to update account
-
+        reviewRepo.save(review);
     }
 
     @RequestMapping(value = "/{accountId}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteReview(@PathVariable int ref_id){
+    public void deleteReview(@PathVariable int ref_id, Review review){
 
-
-
-
-            //code to delete account
-
-
+            Optional<Review> optionalReview = reviewRepo.findById(review.getRef_id());
+            reviewRepo.delete(review);
         }
-
-
 
     }
 

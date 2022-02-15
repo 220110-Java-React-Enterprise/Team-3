@@ -49,9 +49,6 @@ public class UserController {
     public void deleteUser(@RequestBody User user) {
         Optional<User> optionalUser = userRepo.findById(user.getUser_id());
         userRepo.delete(user);
-        //add in code to delete all reviews this person has
+
     }
-
-    //add in exception handling logging stuff
-
 }
