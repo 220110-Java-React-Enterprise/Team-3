@@ -8,20 +8,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GameList {
 
-    private Game[] results;
+    private Game[] games;
 
     public GameList() {
     }
 
-    public GameList(Game[] results) {
-        this.results = results;
+    public Game[] getGames() {
+        return games;
     }
 
-    public Game[] getResults() {
-        return results;
-    }
-
-    public void setResults(Game[] results) {
-        this.results = results;
+    public void setGames(Game[] games) {
+        this.games = games;
     }
 }

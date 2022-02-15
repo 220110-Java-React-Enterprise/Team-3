@@ -1,9 +1,6 @@
 package com.revature.project2.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  * @Author Jason, Shabana
@@ -12,42 +9,37 @@ import javax.persistence.OneToOne;
 public class Review {
 
     @Id
-    private int ref_id;
+    @Column(name = "ref_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer refId;
 
-    @OneToOne
-    private int game_id;
-
-    @OneToOne
-    private int user_id;
+    @ManyToOne
+    @JoinColumn(name="game_id")
+    private Game gameId;
 
     @Column
     private String review;
 
     @Column
-    private int rating;
+    private Integer rating;
 
-    public int getGame_id() {
-        return game_id;
+    public Review() {
     }
 
-    public void setGame_id(int game_id) {
-        this.game_id = game_id;
+    public Integer getRefId() {
+        return refId;
     }
 
-    public int getRef_id() {
-        return ref_id;
+    public void setRefId(Integer refId) {
+        this.refId = refId;
     }
 
-    public void setRef_id(int ref_id) {
-        this.ref_id = ref_id;
+    public Game getGameId() {
+        return gameId;
     }
 
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setGameId(Game gameId) {
+        this.gameId = gameId;
     }
 
     public String getReview() {
@@ -58,22 +50,11 @@ public class Review {
         this.review = review;
     }
 
-    public double getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public Review() {
-    }
-
-    public Review(int game_id, int ref_id, int user_id, String review, int rating) {
-        this.game_id = game_id;
-        this.ref_id = ref_id;
-        this.user_id = user_id;
-        this.review = review;
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 }

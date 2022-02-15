@@ -46,7 +46,7 @@ public class UserController {
     @RequestMapping(method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void deleteUser(@RequestBody User user) {
-        Optional<User> optionalUser = userRepo.findById(user.getUser_id());
+        Optional<User> optionalUser = userRepo.findById(user.getUserId());
         userRepo.delete(user);
         //add in code to delete all reviews this person has
     }

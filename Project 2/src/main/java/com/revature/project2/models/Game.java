@@ -17,7 +17,7 @@ public class Game {
     @Id
     @Column(name = "game_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer gameID;
+    private Integer gameId;
 
     @Column
     private String name;
@@ -32,41 +32,28 @@ public class Game {
     private Integer metacritic;
 
     @Column
-    private List<String> platforms;
+    private String platforms;
 
     @Column
-    private List<String> genres;
+    private String genres;
 
     @Column
-    private List<String> tags;
+    private String tags;
 
     @Column(name = "esrb_rating")
     private String esrbRating;
 
     @Column
-    private List<String> screenshots;
+    private String screenshots;
 
     public Game(){}
 
-    public Game(Integer gameID, String name, LocalDate released, String backgroundImage, Integer metacritic, List<String> platforms, List<String> genres, List<String> tags, String esrbRating, List<String> screenshots) {
-        this.gameID = gameID;
-        this.name = name;
-        this.released = released;
-        this.backgroundImage = backgroundImage;
-        this.metacritic = metacritic;
-        this.platforms = platforms;
-        this.genres = genres;
-        this.tags = tags;
-        this.esrbRating = esrbRating;
-        this.screenshots = screenshots;
+    public Integer getGameId() {
+        return gameId;
     }
 
-    public Integer getGameID() {
-        return gameID;
-    }
-
-    public void setGameID(Integer gameID) {
-        this.gameID = gameID;
+    public void setGameId(Integer gameId) {
+        this.gameId = gameId;
     }
 
     public String getName() {
@@ -101,27 +88,27 @@ public class Game {
         this.metacritic = metacritic;
     }
 
-    public List<String> getPlatforms() {
+    public String getPlatforms() {
         return platforms;
     }
 
-    public void setPlatforms(List<String> platforms) {
+    public void setPlatforms(String platforms) {
         this.platforms = platforms;
     }
 
-    public List<String> getGenres() {
+    public String getGenres() {
         return genres;
     }
 
-    public void setGenres(List<String> genres) {
+    public void setGenres(String genres) {
         this.genres = genres;
     }
 
-    public List<String> getTags() {
+    public String getTags() {
         return tags;
     }
 
-    public void setTags(List<String> tags) {
+    public void setTags(String tags) {
         this.tags = tags;
     }
 
@@ -133,27 +120,27 @@ public class Game {
         this.esrbRating = esrbRating;
     }
 
-    public List<String> getScreenshots() {
+    public String getScreenshots() {
         return screenshots;
     }
 
-    public void setScreenshots(List<String> screenshots) {
+    public void setScreenshots(String screenshots) {
         this.screenshots = screenshots;
     }
 
     @Override
     public String toString() {
         return "Game{" +
-                "gameID=" + gameID +
+                "gameId=" + gameId +
                 ", name='" + name + '\'' +
                 ", released=" + released +
                 ", backgroundImage='" + backgroundImage + '\'' +
                 ", metacritic=" + metacritic +
-                ", platforms=" + platforms +
-                ", genres=" + genres +
-                ", tags=" + tags +
+                ", platforms='" + platforms + '\'' +
+                ", genres='" + genres + '\'' +
+                ", tags='" + tags + '\'' +
                 ", esrbRating='" + esrbRating + '\'' +
-                ", screenshots=" + screenshots +
+                ", screenshots='" + screenshots + '\'' +
                 '}';
     }
 }

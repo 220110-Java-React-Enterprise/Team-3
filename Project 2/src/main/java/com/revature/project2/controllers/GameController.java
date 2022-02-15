@@ -44,7 +44,7 @@ public class GameController {
     @RequestMapping(method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void deleteGame(@RequestBody Game game) {
-        Optional<Game> optionalGame = gameRepo.findById(game.getGameID());
+        Optional<Game> optionalGame = gameRepo.findById(game.getGameId());
         gameRepo.delete(game);
     }
 }

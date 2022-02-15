@@ -1,8 +1,8 @@
 package com.revature.project2.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @Author Jason, Shabana
@@ -11,33 +11,35 @@ import javax.persistence.Id;
 public class User {
 
     @Id
-    private int user_id;
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer userId;
+
     @Column
     private String username;
+
     @Column
     private String password;
+
     @Column
     private String email;
+
+    @Column(name = "is_admin")
+    private Boolean isAdmin;
+
     @Column
-    private boolean isAdmin;
+    @OneToMany
+    private List<Review> reviews = new LinkedList<>();;
 
     public User() {
     }
 
-    public User(int user_id, String username, String password, String email, boolean isAdmin) {
-        this.user_id = user_id;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.isAdmin = isAdmin;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -64,11 +66,11 @@ public class User {
         this.email = email;
     }
 
-    public boolean isAdmin() {
+    public Boolean getAdmin() {
         return isAdmin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(Boolean admin) {
         isAdmin = admin;
     }
 }
