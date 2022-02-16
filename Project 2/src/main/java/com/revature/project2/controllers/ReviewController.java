@@ -1,5 +1,6 @@
 package com.revature.project2.controllers;
 
+import com.revature.project2.exceptions.ReviewNotFoundException;
 import com.revature.project2.models.Review;
 import com.revature.project2.repo.ReviewRepo;
 import com.revature.project2.repo.UserRepo;
@@ -33,13 +34,13 @@ public class ReviewController {
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Review getReviewsById(@PathVariable int ref_id) throws Exception {
+    public Review getReviewsById(@PathVariable int ref_id) throws ReviewNotFoundException {
         Review result = null;
         Optional<Review> optionalReview = reviewRepo.findById(ref_id);
         if (optionalReview.isPresent())
             result = optionalReview.get();
         else
-            throw new Exception("Review " + ref_id + " Not Found!");
+            throw new ReviewNotFoundException("Review " + ref_id + " Not Found!");
 
         return result;
     }

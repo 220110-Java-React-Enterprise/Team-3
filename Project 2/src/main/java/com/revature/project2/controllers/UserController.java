@@ -1,5 +1,7 @@
 package com.revature.project2.controllers;
 
+import com.revature.project2.exceptions.ReviewNotFoundException;
+import com.revature.project2.exceptions.UserNotFoundException;
 import com.revature.project2.models.Review;
 import com.revature.project2.models.User;
 import com.revature.project2.repo.ReviewRepo;
@@ -33,9 +35,15 @@ public class UserController {
     }
 
     @RequestMapping(value = "/{userId}")
-    public User getUserById(@PathVariable Integer userId){
+    public User getUserById(@PathVariable Integer userId) throws UserNotFoundException {
+        User result = null;
         Optional<User> optionalUser = userRepo.findById(userId);
-            return optionalUser.get();
+        if (optionalUser.isPresent())
+            result = optionalUser.get();
+        else
+            throw new UserNotFoundException("User " + userId + " Not Found!");
+
+        return result;
     }
     @RequestMapping(value = "/{accountId}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)

@@ -1,5 +1,6 @@
 package com.revature.project2.controllers;
 
+import com.revature.project2.exceptions.GameNotFoundException;
 import com.revature.project2.models.Game;
 import com.revature.project2.repo.GameRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +31,12 @@ public class GameController {
 
     @RequestMapping(value = "/{gameId}")
     @ResponseStatus(HttpStatus.OK)
-    public Game getGameById(@PathVariable Integer gameId) throws Exception {
+    public Game getGameById(@PathVariable Integer gameId) throws GameNotFoundException {
         Optional<Game> optionalGame = gameRepo.findById(gameId);
         if (optionalGame.isPresent()) {
             return optionalGame.get();
         } else {
-            throw new Exception("Game " + gameId + " Not Found!");
+            throw new GameNotFoundException("Game " + gameId + " Not Found!");
         }
     }
 
