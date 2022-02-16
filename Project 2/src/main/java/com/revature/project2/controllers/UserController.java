@@ -1,11 +1,14 @@
 package com.revature.project2.controllers;
 
+import com.revature.project2.models.Review;
 import com.revature.project2.models.User;
 import com.revature.project2.repo.ReviewRepo;
 import com.revature.project2.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -33,6 +36,13 @@ public class UserController {
     public User getUserById(@PathVariable Integer userId){
         Optional<User> optionalUser = userRepo.findById(userId);
             return optionalUser.get();
+    }
+    @RequestMapping(value = "/{accountId}", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.OK)
+    public List<User> getAllUsers(){
+        List<User> result=null;
+        result = userRepo.findAll();
+        return result;
     }
 
     @RequestMapping(method = RequestMethod.PUT)

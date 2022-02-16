@@ -48,6 +48,14 @@ public class ReviewController {
 
     @RequestMapping(value = "/{accountId}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
+    public List<Review> getAllReviews(){
+        List<Review> result=null;
+        result = reviewRepo.findAll();
+        return result;
+    }
+
+    @RequestMapping(value = "/{accountId}", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.OK)
     public void updateReview(@RequestBody Review review, @PathVariable int ref_id) {
         reviewRepo.save(review);
     }
