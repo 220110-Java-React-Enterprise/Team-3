@@ -1,10 +1,9 @@
 package com.revature.project2.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.revature.project2.dtos.EsrbRating;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.List;
 
 /**
  * @Author Trevor, Jeffrey, CJ
@@ -20,16 +19,19 @@ public class Game {
     private Integer gameId;
 
     @Column
+    private String slug;
+
+    @Column
     private String name;
 
     @Column
-    private LocalDate released;
+    private String released;
 
     @Column(name = "background_image")
     private String backgroundImage;
 
-    @Column(name = "meta_critic")
-    private Integer metacritic;
+    @Column
+    private Integer rating;
 
     @Column
     private String platforms;
@@ -37,14 +39,12 @@ public class Game {
     @Column
     private String genres;
 
-    @Column
-    private String tags;
-
     @Column(name = "esrb_rating")
     private String esrbRating;
 
     @Column
     private String screenshots;
+
 
     public Game(){}
 
@@ -56,6 +56,14 @@ public class Game {
         this.gameId = gameId;
     }
 
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
     public String getName() {
         return name;
     }
@@ -64,11 +72,11 @@ public class Game {
         this.name = name;
     }
 
-    public LocalDate getReleased() {
+    public String getReleased() {
         return released;
     }
 
-    public void setReleased(LocalDate released) {
+    public void setReleased(String released) {
         this.released = released;
     }
 
@@ -80,12 +88,12 @@ public class Game {
         this.backgroundImage = backgroundImage;
     }
 
-    public Integer getMetacritic() {
-        return metacritic;
+    public Integer getRating() {
+        return rating;
     }
 
-    public void setMetacritic(Integer metacritic) {
-        this.metacritic = metacritic;
+    public void setRating(Integer rating) {
+        this.rating = rating;
     }
 
     public String getPlatforms() {
@@ -102,14 +110,6 @@ public class Game {
 
     public void setGenres(String genres) {
         this.genres = genres;
-    }
-
-    public String getTags() {
-        return tags;
-    }
-
-    public void setTags(String tags) {
-        this.tags = tags;
     }
 
     public String getEsrbRating() {
@@ -132,13 +132,13 @@ public class Game {
     public String toString() {
         return "Game{" +
                 "gameId=" + gameId +
+                ", slug='" + slug + '\'' +
                 ", name='" + name + '\'' +
-                ", released=" + released +
+                ", released='" + released + '\'' +
                 ", backgroundImage='" + backgroundImage + '\'' +
-                ", metacritic=" + metacritic +
+                ", rating=" + rating +
                 ", platforms='" + platforms + '\'' +
                 ", genres='" + genres + '\'' +
-                ", tags='" + tags + '\'' +
                 ", esrbRating='" + esrbRating + '\'' +
                 ", screenshots='" + screenshots + '\'' +
                 '}';
