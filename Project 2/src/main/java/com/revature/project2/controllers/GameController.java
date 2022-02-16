@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -49,5 +50,11 @@ public class GameController {
     public void deleteGame(@RequestBody Game game) {
         Optional<Game> optionalGame = gameRepo.findById(game.getGameId());
         gameRepo.delete(game);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<Game> getAllGames() {
+        return gameRepo.findAll();
     }
 }

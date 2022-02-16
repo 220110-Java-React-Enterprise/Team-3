@@ -37,12 +37,10 @@ public class UserController {
         Optional<User> optionalUser = userRepo.findById(userId);
             return optionalUser.get();
     }
-    @RequestMapping(value = "/{accountId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{accountId}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<User> getAllUsers(){
-        List<User> result=null;
-        result = userRepo.findAll();
-        return result;
+        return userRepo.findAll();
     }
 
     @RequestMapping(method = RequestMethod.PUT)

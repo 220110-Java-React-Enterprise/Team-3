@@ -41,7 +41,7 @@ public class Game {
     @Column(name = "esrb_rating")
     private String esrbRating;
 
-    @Column
+    @Column(columnDefinition = "VARCHAR(1000)")
     private String screenshots;
 
     public Game(){}

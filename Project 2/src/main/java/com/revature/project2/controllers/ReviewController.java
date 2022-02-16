@@ -29,8 +29,6 @@ public class ReviewController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void newReviewOfGameForUser(@RequestBody Review review) {
         reviewRepo.save(review);
-
-
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -46,12 +44,10 @@ public class ReviewController {
         return result;
     }
 
-    @RequestMapping(value = "/{accountId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{accountId}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<Review> getAllReviews(){
-        List<Review> result=null;
-        result = reviewRepo.findAll();
-        return result;
+        return reviewRepo.findAll();
     }
 
     @RequestMapping(value = "/{accountId}", method = RequestMethod.PUT)
