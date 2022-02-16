@@ -30,7 +30,7 @@ This project will be done in teams of 5-6 members that will be assigned when we 
 
 
 ## Memory Pak
-Have you ever wanted a concise way to keep track of what games you’ve played and what you thought about them? Then Memory Pak is the website for you! It’s an all in one tool to track your video game habits. See what games your friends have been playing.
+Have you ever wanted a concise way to keep track of what games you’ve played and what you thought about them? Then Memory Pak is the website for you! It’s an all in one tool to track your video game habits. See what games your friends have been playing and more!
 
 ### Minimum Viable Product
 Your team will need to work with the trainer to come up with a satisfactory list of user stories for MVP as well as bonus stories. They should begin with "As a [stakeholder] I can... and describe what the user should be able to do. Aim for at least 2 different roles, perhaps user and administrator. Try to come up with 6-8 user stories for MVP. Carefully consider what your team can accomplish in 2 weeks and try not to set yourselves too great a task.
