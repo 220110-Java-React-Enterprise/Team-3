@@ -17,13 +17,11 @@ public class UserController {
     private final UserRepo userRepo;
     private final ReviewRepo reviewRepo;
 
-
     @Autowired
     public UserController(UserRepo userRepo, ReviewRepo reviewRepo) {
         this.userRepo = userRepo;
         this.reviewRepo = reviewRepo;
     }
-
 
     @RequestMapping(value = "/{userId}",method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.ACCEPTED)

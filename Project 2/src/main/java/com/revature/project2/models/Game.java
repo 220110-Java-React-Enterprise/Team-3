@@ -1,7 +1,6 @@
 package com.revature.project2.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.revature.project2.dtos.EsrbRating;
 
 import javax.persistence.*;
 
@@ -44,7 +43,6 @@ public class Game {
 
     @Column
     private String screenshots;
-
 
     public Game(){}
 

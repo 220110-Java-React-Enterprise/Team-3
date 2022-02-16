@@ -18,18 +18,15 @@ public class ReviewController {
     private final UserRepo userRepo;
     private final ReviewRepo reviewRepo;
 
-
     @Autowired
     public ReviewController(UserRepo userRepo, ReviewRepo reviewRepo) {
         this.userRepo = userRepo;
         this.reviewRepo = reviewRepo;
     }
 
-
-
-    @RequestMapping(value = "/{userId}",method = RequestMethod.POST)
+    @RequestMapping(value = "/{userId}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void newReviewOfGameForUser(@RequestBody Review review){
+    public void newReviewOfGameForUser(@RequestBody Review review) {
         reviewRepo.save(review);
         //should I be writing logic checks in here?
 
@@ -37,7 +34,7 @@ public class ReviewController {
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public List<Review> getAllReviewsForUser(@PathVariable int user_id){
+    public List<Review> getAllReviewsForUser(@PathVariable int user_id) {
         List<Review> result = null;
         //code to get all reviews
 
@@ -46,7 +43,7 @@ public class ReviewController {
 
     @RequestMapping(value = "/{accountId}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-    public void updateReview(@RequestBody Review review, @PathVariable int ref_id){
+    public void updateReview(@RequestBody Review review, @PathVariable int ref_id) {
 
         //code to update account
 
@@ -54,15 +51,13 @@ public class ReviewController {
 
     @RequestMapping(value = "/{accountId}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteReview(@PathVariable int ref_id){
+    public void deleteReview(@PathVariable int ref_id) {
 
-            //code to delete account
-
-        }
-
-
+        //code to delete account
 
     }
+    
+}
 
 
 

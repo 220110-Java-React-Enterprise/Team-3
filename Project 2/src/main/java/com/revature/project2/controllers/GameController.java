@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+/**
+ * @Author Trevor, Jeffrey, CJ
+ */
 @RestController
 @RequestMapping("/games")
 public class GameController {

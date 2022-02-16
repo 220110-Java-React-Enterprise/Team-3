@@ -15,14 +15,10 @@ import java.util.Properties;
 import java.util.StringJoiner;
 
 /**
- * @Author Trevor, Jeffrey, CJ
+ * @Author Jeffrey
  * Service class for connecting to the RAWG Video Game Database API
  */
 public class GameAPI {
-
-    public static void main(String[] args) throws IOException {
-        getAllGames();
-    }
 
     public static List<Game> getAllGames() throws IOException {
         List<Game> gameList = new ArrayList<>();
@@ -90,11 +86,10 @@ public class GameAPI {
                 game.setScreenshots(sj.toString());
 
                 gameList.add(game);
-                System.out.println(game);
             }
             page++;
         }
-        
+
         return gameList;
     }
 }

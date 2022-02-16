@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 /**
  * @Author Jason, Shabana
+ * Review POJO
  */
 @Entity
 public class Review {
