@@ -1,6 +1,7 @@
-# Team-3
-## Project 2
+# Memory Pak
+## Project 2 | Team 3
 
+### Contributors
 Shabana Mehr\
 Trevor Hughes\
 Jason Graves\
