@@ -17,7 +17,7 @@ import java.util.Optional;
  * @Author Jason, Shabana
  */
 @RestController
-@RequestMapping("/User")
+@RequestMapping("/users")
 public class UserController {
     private final UserRepo userRepo;
     private final ReviewRepo reviewRepo;
@@ -28,7 +28,7 @@ public class UserController {
         this.reviewRepo = reviewRepo;
     }
 
-    @RequestMapping(value = "/{userId}",method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void newUser(@RequestBody User user){
         userRepo.save(user);

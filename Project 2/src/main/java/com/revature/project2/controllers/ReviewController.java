@@ -15,7 +15,7 @@ import java.util.Optional;
  * @Author Jason, Shabana
  */
 @RestController
-@RequestMapping("/Review")
+@RequestMapping("/reviews")
 public class ReviewController {
     private final UserRepo userRepo;
     private final ReviewRepo reviewRepo;
