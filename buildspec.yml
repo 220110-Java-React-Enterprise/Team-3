@@ -6,12 +6,7 @@ phases:
       java: corretto11
   pre_build:
     commands:
-      - echo ======================================== PRE BUILD ========================================
-      - pwd
-      - ls -al
      
-      - ls -al
-      - ls -al src/main/resources/
   build:
     commands:
       - mvn package
