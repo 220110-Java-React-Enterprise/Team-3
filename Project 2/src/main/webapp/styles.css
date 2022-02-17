@@ -1,0 +1,128 @@
+body {
+    background-color: #3d3d3d;
+}
+
+.nav-logo {
+    max-width:100%;
+    max-height:100%;
+}
+
+.header {
+    background-color: #3d3d3d;
+    background-position: 0 8px;
+    background-repeat: no-repeat;
+    height: 150px;
+    padding: 10px 10px 2px;
+    position: relative;
+}
+
+.header_small {
+    background-color: #3d3d3d;
+    background-position: 0 8px;
+    background-repeat: no-repeat;
+    height: 64px;
+    padding: 10px 10px 2px;
+    position: relative;
+}
+
+.header_menu {
+    position: absolute;
+    right: 0;
+    top: 16px;
+    z-index: 200;
+}
+
+.btn_login {
+    color: #ff0000;
+    border: #bd2130 2px solid;
+    border-radius: 2px;
+    display: inline-block;
+    font-family: arial;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    margin-left: 8px;
+    padding: 4px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+}
+
+.btn_register {
+    color: #fff;
+    background-color: #ff0000;
+    border: #bd2130 2px solid;
+    border-radius: 2px;
+    display: inline-block;
+    font-family: arial;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    margin-left: 8px;
+    padding: 4px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+}
+
+#content {
+    max-width: 1080px;
+    margin: auto;
+}
+
+#navbar {
+    background-color: #cc0000;
+    height: 40px;
+    width: 1080px;
+}
+
+#navbar_left {
+    display: inline-block;
+    float: left;
+}
+
+#navbar_right {
+    display: inline-block;
+    float: right;
+    position: relative;
+    text-align: right;
+}
+
+#nav {
+    list-style: none;
+    margin-top: 5px;
+    padding: 0;
+}
+
+#nav_search_bar {
+    display: inline-block;
+    padding-right: 7px;
+    padding-top: 7px;
+}
+
+#search_bar {
+    display: inline-block;
+    border: 0;
+    height: 20px;
+    padding-left: 2px;
+    text-indent: 4px;
+    width: 286px;
+    font-size: 12px;
+}
+
+.navbar_menu_item {
+    color: #fff !important;
+    display: inline;
+    font-size: 14px;
+    font-weight: 700;
+    height: 24px;
+    padding: 10px 5px 0;
+    margin-left: 20px;
+    text-align: left;
+    text-decoration: none;
+}
+
+#game_carousel {
+    background-color: #000;
+    height: 300px;
+}
