@@ -19,7 +19,7 @@ phases:
       - mvn package
   post_build:
     commands:
-      - mv target/devops-demo-0.1.war ROOT.war
+      - mv target/Team-3-0.1.war ROOT.war
 artifacts:
   files:
     - ROOT.war
