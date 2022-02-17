@@ -22,9 +22,6 @@ public class User {
     @Column
     private String password;
 
-    @Column
-    private String email;
-
     @Column(name = "is_admin")
     private Boolean isAdmin;
 
@@ -57,14 +54,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Boolean getAdmin() {

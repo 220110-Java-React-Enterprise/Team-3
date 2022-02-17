@@ -141,8 +141,19 @@ a:hover, a:focus {
     height: 280px;
 }
 
+#banner_bottom {
+    height: 240px;
+    margin-top: 100px;
+    margin-bottom: 0;
+}
+
 #banner_img {
     height: 90%;
+    width: 100%;
+}
+
+#banner_bottom_img {
+    height: 100%;
     width: 100%;
 }
 
@@ -172,7 +183,7 @@ a:hover, a:focus {
     margin-bottom: 16px;
 }
 
-#login_username, #login_password {
+#register_username, #register_password, #login_username, #login_password {
     border: #db51ee 4px solid;
     border-radius: 8px;
     display: block;
@@ -191,4 +202,9 @@ a:hover, a:focus {
     margin-top: 24px;
     border-radius: 12px;
     border: #361d6d 3px solid;
+}
+
+#welcome_label {
+    color: #fff;
+    margin-bottom: 20px;
 }
