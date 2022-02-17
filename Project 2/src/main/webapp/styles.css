@@ -136,3 +136,59 @@ a:hover, a:focus {
     background-color: #000;
     height: 300px;
 }
+
+#banner {
+    height: 280px;
+}
+
+#banner_img {
+    height: 90%;
+    width: 100%;
+}
+
+.panel_body {
+    max-width: 1080px;
+    margin: auto;
+}
+
+#login_box {
+    width: 480px;
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 60px;
+}
+
+.label {
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.label_header {
+    color: #fff;
+}
+
+.form_item {
+    margin-bottom: 16px;
+}
+
+#login_username, #login_password {
+    border: #db51ee 4px solid;
+    border-radius: 8px;
+    display: block;
+    height: 42px;
+    width: 100%;
+}
+
+.submit_btn {
+    background-color: #db51ee;
+    color: #fff;
+    height: 42px;
+    width: 200px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 24px;
+    border-radius: 12px;
+    border: #361d6d 3px solid;
+}
