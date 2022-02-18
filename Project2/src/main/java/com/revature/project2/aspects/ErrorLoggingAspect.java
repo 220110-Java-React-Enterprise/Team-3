@@ -1,3 +1,4 @@
+/*
 package com.revature.project2.aspects;
 
 import com.sun.org.slf4j.internal.Logger;
@@ -25,3 +26,4 @@ public class ErrorLoggingAspect {
     }
 
 }
+*/
