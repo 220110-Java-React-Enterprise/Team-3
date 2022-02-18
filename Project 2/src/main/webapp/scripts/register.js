@@ -1,19 +1,23 @@
-function register() {
-    const User = {
+async function register() {
+    let user = {
         username: document.getElementById("register_username").value,
         password: document.getElementById("register_password").value
     };
 
-    const param = {
+    console.log(JSON.stringify(user));
+      let response = await fetch("http://localhost:8080/users", {
+        method: 'POST',
         headers: {
-            "content-type": "application/json; charset=UTF-8"
+          'Content-Type': 'application/json;charset=utf-8'
         },
-        body: User,
-        method: "POST"
-    };
+        body: JSON.stringify(user)
+      });
+      try {
+        let result = await response.json();
+        alert(result.message);
+      } catch (error) {
+        console.error(error);
+      }
+};
 
-    fetch("http://localhost:8080/users", param)
-    .then(data=>{return data.json()})
-    .then(res=>{console.log(res)})
-    .catch(error=>console.log(error));
-}
+
