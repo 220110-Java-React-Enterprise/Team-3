@@ -8,6 +8,7 @@ import javax.persistence.*;
  * @Author Trevor, Jeffrey, CJ
  * Game POJO
  */
+
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Game {
