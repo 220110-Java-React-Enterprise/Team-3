@@ -11,6 +11,7 @@
 	<groupId>com.revature</groupId>
 	<artifactId>project2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>project2</name>
 	<description>Project 2 for Team 3</description>
 	<properties>
