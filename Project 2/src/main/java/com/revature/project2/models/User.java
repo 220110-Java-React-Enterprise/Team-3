@@ -1,5 +1,7 @@
 package com.revature.project2.models;
 
+import org.jetbrains.annotations.NotNull;
+
 import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,11 +18,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String username;
 
-    @Column
+    @Column(nullable = false)
     private String password;
+
+    @Column
+    private String bio;
 
     @Column(name = "is_admin")
     private Boolean isAdmin;
@@ -56,11 +61,27 @@ public class User {
         this.password = password;
     }
 
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
     public Boolean getAdmin() {
         return isAdmin;
     }
 
     public void setAdmin(Boolean admin) {
         isAdmin = admin;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }
