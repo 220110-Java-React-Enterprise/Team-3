@@ -17,7 +17,7 @@ phases:
       - mvn package -DskipTests
   post_build:
     commands:
-      - mv target/project2-0.0.1.war ROOT.war
+      - mv target/project2-0.0.1-SNAPSHOT.war ROOT.war
 artifacts:
   files:
     - ROOT.war
