@@ -1,14 +1,24 @@
+:root {
+    --bg: #3d3d3d;
+    --font-light: #fff;
+    --font-dark: #000;
+    --laser: #db51ee;
+    --laser-accent: #361d6d;
+    --pak-red: #bb0000;
+    --pak-red-accent: #bd2130;
+}
+
 body {
-    background-color: #3d3d3d;
+    background-color: var(--bg);
 }
 
 a {
-    color: #fff;
+    color: var(--font-light);
     text-decoration: none;
 }
 
 a:hover, a:focus {
-    color: #fff;
+    color: var(--font-light);
     text-decoration: none;
 }
 
@@ -18,7 +28,7 @@ a:hover, a:focus {
 }
 
 .header {
-    background-color: #3d3d3d;
+    background-color: var(--bg);
     background-position: 0 8px;
     background-repeat: no-repeat;
     height: 150px;
@@ -27,7 +37,7 @@ a:hover, a:focus {
 }
 
 .header_small {
-    background-color: #3d3d3d;
+    background-color: var(--bg);
     background-position: 0 8px;
     background-repeat: no-repeat;
     height: 64px;
@@ -43,8 +53,8 @@ a:hover, a:focus {
 }
 
 .btn_login {
-    color: #ff0000;
-    border: #bd2130 2px solid;
+    color: var(--pak-red);
+    border: var(--pak-red-accent) 2px solid;
     border-radius: 2px;
     display: inline-block;
     font-family: arial;
@@ -59,8 +69,8 @@ a:hover, a:focus {
 }
 
 .btn_register {
-    color: #fff;
-    background-color: #ff0000;
+    color: var(--font-light);
+    background-color: var(--pak-red);
     border: #bd2130 2px solid;
     border-radius: 2px;
     display: inline-block;
@@ -81,7 +91,7 @@ a:hover, a:focus {
 }
 
 #navbar {
-    background-color: #cc0000;
+    background-color: var(--pak-red);
     height: 40px;
     width: 1080px;
 }
@@ -121,7 +131,7 @@ a:hover, a:focus {
 }
 
 .navbar_menu_item {
-    color: #fff !important;
+    color: var(--font-light) !important;
     display: inline;
     font-size: 14px;
     font-weight: 700;
@@ -171,12 +181,12 @@ a:hover, a:focus {
 }
 
 .label {
-    color: #fff;
+    color: var(--font-light);
     margin-bottom: 8px;
 }
 
 .label_header {
-    color: #fff;
+    color: var(--font-light);
 }
 
 .form_item {
@@ -184,7 +194,7 @@ a:hover, a:focus {
 }
 
 #register_username, #register_password, #login_username, #login_password {
-    border: #db51ee 4px solid;
+    border: var(--laser) 4px solid;
     border-radius: 8px;
     display: block;
     height: 42px;
@@ -192,8 +202,8 @@ a:hover, a:focus {
 }
 
 .submit_btn {
-    background-color: #db51ee;
-    color: #fff;
+    background-color: var(--laser);
+    color: var(--font-light);
     height: 42px;
     width: 200px;
     display: block;
@@ -201,10 +211,46 @@ a:hover, a:focus {
     margin-left: auto;
     margin-top: 24px;
     border-radius: 12px;
-    border: #361d6d 3px solid;
+    border: var(--laser-accent) 3px solid;
 }
 
 #welcome_label {
-    color: #fff;
+    color: var(--font-light);
     margin-bottom: 20px;
+}
+
+.columns {
+    margin-top: 18px;
+}
+
+#recent_reviews_column {
+    float: left;
+    width: 49%;
+    margin-right: 1%;
+}
+
+#friends_column {
+    float: left;
+    width: 49%;
+    margin-left: 1%;
+}
+
+.review_entry {
+    background-color: var(--font-light);
+    color: var(--font-dark);
+    border: outset;
+    padding-left: 5px;
+    margin-bottom: 2px;
+
+}
+
+.friend_entry {
+    background-color: #c84d72;
+    color: var(--font-light);
+    border: outset;
+    padding-left: 5px;
+}
+
+.review_entry > p, .friend_entry > p {
+    margin-bottom: 0.5rem;
 }
