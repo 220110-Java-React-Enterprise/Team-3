@@ -13,10 +13,10 @@ public class ErrorLoggingAspect {
 
     Logger log = LoggerFactory.getLogger(ErrorLoggingAspect.class);
 
-    @AfterThrowing(pointcut = "execution(* com.revature.project2.Project2Application.test(..))", throwing = "e")
+    @AfterThrowing(pointcut = "within(com.revature.project2.controllers.*) && !within(com.revature.project2.controllers.CORSFilter)", throwing = "e")
     public void logException(JoinPoint jp, Throwable e) {
         System.out.println("Breadcrumb");
-        log.error("An exception has been thrown in " + jp.getSignature().getName() + " ()", e);
+        log.error("An exception has been thrown in " + jp.getSignature().getName() + "()", e);
         log.error("Cause : " + e.getCause());
     }
 
