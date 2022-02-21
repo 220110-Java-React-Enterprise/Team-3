@@ -1,14 +1,14 @@
 package com.revature.project2.controllers;
 
-import com.revature.project2.exceptions.ReviewNotFoundException;
 import com.revature.project2.exceptions.UserNotFoundException;
-import com.revature.project2.models.Review;
 import com.revature.project2.models.User;
 import com.revature.project2.repo.ReviewRepo;
 import com.revature.project2.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -70,9 +70,16 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
-    public void validateUser(@RequestBody User user) {
-        ExampleMatcher em = ExampleMatcher.matching().withIgnorePaths("user_id").withMatcher("username",ignoreCase()).withMatcher("password",ignoreCase());
-        userRepo.exists());
+    public User validateUser(@RequestBody User user) {
+        ExampleMatcher em = ExampleMatcher.matching().withIgnorePaths("user_id")
+                .withMatcher("username",ignoreCase()).withMatcher("password",ignoreCase());
+        Example<User> example = Example.of(user, em);
+        boolean exists = userRepo.exists(example);
+
+        if(exists) {
+            return user;
+        }
+        return null;
     }
 
 }
