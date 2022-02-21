@@ -327,3 +327,26 @@ a:hover, a:focus {
 .details {
     color: var(--font-light);
 }
+
+#games_list {
+    width: 1080px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    justify-items: center;
+}
+
+.game_item {
+
+}
+
+.game_covers {
+    width: 180px;
+    height: 240px;
+}
+
+.game_title {
+    color: var(--font-light);
+}
