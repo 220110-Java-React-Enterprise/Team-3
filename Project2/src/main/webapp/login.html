@@ -37,15 +37,18 @@
 
         <div class="panel_body">
             <div id="login_box">
-                <div class="form_item">
-                    <label class="label" for="login_username">Username</label>
-                    <input id="login_username">
-                </div>
-                <div class="form_item">
-                    <label class="label" for="login_password">Password</label>
-                    <input id="login_password" type="password">
-                </div>
-                <button class="submit_btn" type="submit">Log In</button>
+                <form>
+                    <div class="form_item">
+                        <label class="label" for="login_username">Username</label>
+                        <input id="login_username" required>
+                    </div>
+                    <div class="form_item">
+                        <label class="label" for="login_password">Password</label>
+                        <input id="login_password" type="password" required>
+                    </div>
+                    <p id="error_message" class="error"></p>
+                    <button class="submit_btn" type="button">Log In</button>
+                </form>
             </div>
         </div>
     </div>

@@ -35,15 +35,18 @@
         <div class="panel_body">
             <div id="login_box">
                 <h2 id="welcome_label">Welcome to the pak!</h2>
-                <div class="form_item">
-                    <label class="label" for="register_username">Username</label>
-                    <input id="register_username">
-                </div>
-                <div class="form_item">
-                    <label class="label" for="register_password">Password</label>
-                    <input id="register_password">
-                </div>
-                <button class="submit_btn" type="submit" onclick="register()">Register</button>
+                <form>
+                    <div class="form_item">
+                        <label class="label" for="register_username">Username</label>
+                        <input id="register_username">
+                    </div>
+                    <div class="form_item">
+                        <label class="label" for="register_password">Password</label>
+                        <input id="register_password">
+                    </div>
+                    <p id="error_message" class="error"></p>
+                    <button class="submit_btn" type="button" onclick="register()">Register</button>
+                </form>
             </div>
         </div>
 
