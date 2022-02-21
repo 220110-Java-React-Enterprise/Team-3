@@ -15,7 +15,7 @@ async function login() {
         err.style.visibility = "hidden";
     }
 
-    let url = "http://localhost:8080/users";
+    let url = "http://localhost:8080/users/login";
     let user = {
         username: user_input,
         password: pass_input
@@ -28,14 +28,10 @@ async function login() {
         },
         body: JSON.stringify(user)
     })
-    .then(function(response) {
-        //console.log(response.status);
-        if (!response.ok) {
-            err.style.visibility = "visible";
-            err.innerHTML = "Invalid username or password, or username already exists.";
-        } else {
-            location.href = 'login.html';
-        }
-    })
+    .then((response) => response.json())
+    .then((user) => {
+        return user;
+    });
+    console.log(response);
 
 }

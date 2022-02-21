@@ -36,7 +36,7 @@ async function register() {
         } else {
             location.href = 'login.html';
         }
-    })
+    });
 
 }
 
