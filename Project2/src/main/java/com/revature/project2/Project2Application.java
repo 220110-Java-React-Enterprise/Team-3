@@ -1,11 +1,9 @@
 package com.revature.project2;
 
-import com.revature.project2.controllers.Test;
 import com.revature.project2.utilities.ApplicationContextProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
 
 @SpringBootApplication
 public class Project2Application {
@@ -14,8 +12,6 @@ public class Project2Application {
 		SpringApplication.run(Project2Application.class, args);
 
 		ApplicationContext context = ApplicationContextProvider.getApplicationContext();
-		Test t = context.getBean(Test.class);
-		t.testMethod();
 
 //		GameRepo gameRepo = context.getBean(GameRepo.class);
 //

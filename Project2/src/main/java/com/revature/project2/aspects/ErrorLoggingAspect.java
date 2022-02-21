@@ -7,6 +7,11 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
+
+/**
+ * @Author Jeffrey
+ * AOP Error Logging for all files
+ */
 @Aspect
 @Component
 public class ErrorLoggingAspect {
@@ -15,7 +20,6 @@ public class ErrorLoggingAspect {
 
     @AfterThrowing(pointcut = "within(com.revature.project2.controllers.*) && !within(com.revature.project2.controllers.CORSFilter)", throwing = "e")
     public void logException(JoinPoint jp, Throwable e) {
-        System.out.println("Breadcrumb");
         log.error("An exception has been thrown in " + jp.getSignature().getName() + "()", e);
         log.error("Cause : " + e.getCause());
     }
