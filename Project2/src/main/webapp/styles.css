@@ -291,3 +291,39 @@ a:hover, a:focus {
 .review_entry > p, .friend_entry > p {
     margin-bottom: 0.5rem;
 }
+
+#title_header {
+    background-color: var(--column-header);
+    width: 1080px;
+    height: 48px;
+}
+
+#title_header > h1 {
+    color: var(--font-light);
+    position: fixed;
+    margin-left: 8px;
+}
+
+#game_details {
+    background-color: var(--column-bg);
+    width: 1080px;
+}
+
+#game_cover {
+    width: 240px;
+    height: 320px;
+    margin: 10px;
+}
+
+.slim_column {
+    width: 260px;
+}
+
+.large_column {
+    vertical-align: top;
+    padding-top: 10px;
+}
+
+.details {
+    color: var(--font-light);
+}
