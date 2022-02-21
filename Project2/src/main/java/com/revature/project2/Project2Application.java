@@ -10,7 +10,7 @@ public class Project2Application {
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(Project2Application.class, args);
-		test();
+//		test();
 //		ApplicationContext context = ApplicationContextProvider.getApplicationContext();
 //		GameRepo gameRepo = context.getBean(GameRepo.class);
 //
