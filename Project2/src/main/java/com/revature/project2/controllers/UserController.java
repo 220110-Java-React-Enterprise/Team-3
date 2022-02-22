@@ -80,7 +80,7 @@ public class UserController {
             Optional<User> optionalUser = userRepo.findOne(example);
             return optionalUser.get();
         }
-        return null;
+        return user;
     }
 
 }

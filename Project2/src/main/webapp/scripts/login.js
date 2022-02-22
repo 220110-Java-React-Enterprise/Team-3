@@ -31,6 +31,11 @@ async function login() {
     .then((response) => {
         return response.json();
     });
-    localStorage.setItem("currentUser", response.userId);
-    location.href = 'index.html';
+    if(response.userId != null) {
+        localStorage.setItem("currentUser", response.userId);
+        location.href = 'index.html';
+    } else {
+        err.style.visibility = "visible";
+        err.innerHTML = "Invalid credentials.";
+    }
 }
