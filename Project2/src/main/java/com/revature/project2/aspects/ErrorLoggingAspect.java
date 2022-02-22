@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
  * @Author Jeffrey
  * AOP Error Logging for all files
  */
+/*
 @Aspect
 @Component
 public class ErrorLoggingAspect {
