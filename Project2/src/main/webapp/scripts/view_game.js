@@ -8,8 +8,9 @@ async function loadGame() {
 
     console.log(response);
 
-    let bg = document.getElementById("game_details");
+    let bg = document.getElementById("game_background");
     bg.style.backgroundImage = "url(\"" + response.backgroundImage + "\")";
+    bg.style.backgroundSize = "cover";
 
     document.getElementById("genres").innerHTML = response.genres;
 
