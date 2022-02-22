@@ -9,6 +9,7 @@ phases:
 #      - echo ======================================== PRE BUILD ========================================
 #      - pwd
 #      - ls -al
+        -cd ./Project2
       - aws s3 cp s3://properties-bucket/application.properties src/main/resources/application.properties
 #      - ls -al
 #      - ls -al src/main/resources/
