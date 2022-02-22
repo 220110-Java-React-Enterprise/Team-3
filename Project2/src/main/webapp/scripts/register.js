@@ -1,3 +1,4 @@
+// Author: Jeffrey
 async function register() {
     let user_input = document.getElementById("register_username").value;
     let pass_input = document.getElementById("register_password").value;

@@ -381,10 +381,10 @@ a:hover, a:focus {
     color: var(--font-light);
 }
 
-
 #users_list{
-margin-top: 24px;
+    margin-top: 24px;
 }
+
 .user_item {
     width: 1080px;
     height: 120px;

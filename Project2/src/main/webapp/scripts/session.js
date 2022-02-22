@@ -1,3 +1,4 @@
+// Author: Jeffrey
 function checkSession() {
     if(localStorage.getItem("currentUser")) {
         document.getElementById("backlog").style.visibility = "visible";
