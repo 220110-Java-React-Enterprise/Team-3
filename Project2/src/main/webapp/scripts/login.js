@@ -1,6 +1,6 @@
-async function register() {
-    let user_input = document.getElementById("register_username").value;
-    let pass_input = document.getElementById("register_password").value;
+async function login() {
+    let user_input = document.getElementById("login_username").value;
+    let pass_input = document.getElementById("login_password").value;
 
     let err = document.getElementById("error_message");
     if (user_input == "") {
@@ -15,7 +15,7 @@ async function register() {
         err.style.visibility = "hidden";
     }
 
-    let url = "http://localhost:8080/users";
+    let url = "http://localhost:8080/users/login";
     let user = {
         username: user_input,
         password: pass_input
@@ -28,13 +28,14 @@ async function register() {
         },
         body: JSON.stringify(user)
     })
-    .then(function(response) {
-        //console.log(response.status);
-        if (!response.ok) {
-            err.style.visibility = "visible";
-            err.innerHTML = "Invalid username or password, or username already exists.";
-        } else {
-            location.href = 'login.html';
-        }
+    .then((response) => {
+        return response.json();
     });
+    if(response.userId != null) {
+        localStorage.setItem("currentUser", response.userId);
+        location.href = 'index.html';
+    } else {
+        err.style.visibility = "visible";
+        err.innerHTML = "Invalid credentials.";
+    }
 }

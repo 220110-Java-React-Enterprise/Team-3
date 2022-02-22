@@ -1,16 +1,15 @@
 package com.revature.project2;
 
+import com.revature.project2.utilities.ApplicationContextProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.io.FileNotFoundException;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class Project2Application {
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(Project2Application.class, args);
-//		test();
 //		ApplicationContext context = ApplicationContextProvider.getApplicationContext();
 //		GameRepo gameRepo = context.getBean(GameRepo.class);
 //
@@ -19,9 +18,4 @@ public class Project2Application {
 //			gameRepo.save(game);
 //		}
 	}
-
-	public static void test() throws FileNotFoundException {
-		throw new FileNotFoundException();
-	}
-
 }
