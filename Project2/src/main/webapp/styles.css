@@ -377,3 +377,16 @@ a:hover, a:focus {
 .game_title {
     color: var(--font-light);
 }
+
+
+#users_list{
+margin-top: 24px;
+}
+.user_item {
+    width: 1080px;
+    height: 120px;
+    background-color: var(--column-bg);
+    padding: 10px;
+    border-style: inset;
+    display: block;
+}

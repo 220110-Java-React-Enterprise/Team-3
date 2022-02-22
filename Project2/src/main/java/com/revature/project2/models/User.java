@@ -1,7 +1,5 @@
 package com.revature.project2.models;
 
-import org.jetbrains.annotations.NotNull;
-
 import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
