@@ -59,6 +59,24 @@ a:hover, a:focus {
     z-index: 200;
 }
 
+.btn_logout {
+    color: var(--font-light);
+    background-color: var(--pak-red);
+    border: #bd2130 2px solid;
+    border-radius: 2px;
+    font-family: arial;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    margin-left: 8px;
+    padding: 4px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+    position: absolute;
+    left: 104px;
+}
+
 .btn_login {
     color: var(--pak-red);
     border: var(--pak-red-accent) 2px solid;

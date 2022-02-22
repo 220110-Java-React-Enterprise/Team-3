@@ -37,7 +37,4 @@ async function register() {
             location.href = 'login.html';
         }
     });
-
 }
-
-

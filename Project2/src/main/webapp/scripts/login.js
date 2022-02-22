@@ -28,10 +28,9 @@ async function login() {
         },
         body: JSON.stringify(user)
     })
-    .then((response) => response.json())
-    .then((user) => {
-        return user;
+    .then((response) => {
+        return response.json();
     });
-    console.log(response);
-
+    localStorage.setItem("currentUser", response.userId);
+    location.href = 'index.html';
 }
