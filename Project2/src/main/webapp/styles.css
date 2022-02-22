@@ -329,6 +329,8 @@ a:hover, a:focus {
 
 #game_details {
     background-color: var(--column-bg);
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 1080px;
 }
 
