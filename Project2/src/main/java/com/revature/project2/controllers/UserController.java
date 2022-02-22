@@ -48,9 +48,16 @@ public class UserController {
 
         return result;
     }
-    @RequestMapping(value = "/{accountId}", method = RequestMethod.GET)
+
+    @RequestMapping(method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<User> getAllUsers(){
+        return userRepo.findAll();
+    }
+
+    @RequestMapping(value = "/{accountId}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<User> getFriends(){
         return userRepo.findAll();
     }
 
