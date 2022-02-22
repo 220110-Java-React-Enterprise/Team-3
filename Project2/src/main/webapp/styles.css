@@ -247,6 +247,11 @@ a:hover, a:focus {
     display: block;
     height: 42px;
     width: 100%;
+    padding-left: 8px;
+}
+
+#register_username:focus, #register_password:focus, #login_username:focus, #login_password:focus {
+    outline: none;
 }
 
 .submit_btn {
@@ -357,12 +362,14 @@ a:hover, a:focus {
 }
 
 .game_item {
-
+    background-color: var(--column-bg);
+    padding: 10px;
+    border-style: solid;
 }
 
 .game_covers {
     width: 180px;
-    height: 240px;
+    height: 100px;
 }
 
 .game_title {
