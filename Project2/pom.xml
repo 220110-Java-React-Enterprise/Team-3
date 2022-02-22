@@ -10,6 +10,7 @@
 	</parent>
 	<groupId>com.revature</groupId>
 	<artifactId>project2</artifactId>
+	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>project2</name>
 	<description>Project 2 for Team 3</description>
