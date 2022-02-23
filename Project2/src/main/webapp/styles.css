@@ -429,6 +429,26 @@ a:hover, a:focus {
     color: var(--font-light);
 }
 
+#nav_button_holder {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.nav_buttons {
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 10px;
+    margin: 20px;
+    margin-top: 4px;
+    margin-left: 0;
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    border-style: solid;
+}
+
 #users_list {
     margin-top: 24px;
 }
