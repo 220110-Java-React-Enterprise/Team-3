@@ -12,7 +12,10 @@ async function getUsers() {
 
         a.href = "backlog.html?user_id=" + response[i].userId;
         a.innerHTML += "<h5 class=\"username\">" + response[i].username + "</h5>";
-        a.innerHTML += "<p class=\"bio\">" + response[i].bio + "</p>";
+
+        if(response[i].bio != null) {
+            a.innerHTML += "<p class=\"bio\">" + response[i].bio + "</p>";
+        }
 
         userDiv.className = "user_item";
         userDiv.appendChild(a);

@@ -28,11 +28,11 @@ public class ReviewController {
     public Review getReviewsById(@PathVariable int ref_id) throws ReviewNotFoundException {
         Review result = null;
         Optional<Review> optionalReview = reviewRepo.findById(ref_id);
-        if (optionalReview.isPresent())
+        if(optionalReview.isPresent()) {
             result = optionalReview.get();
-        else
+        } else {
             throw new ReviewNotFoundException("Review " + ref_id + " Not Found!");
-
+        }
         return result;
     }
 

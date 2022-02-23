@@ -33,7 +33,7 @@ public class User {
     private List<Review> reviews = new LinkedList<>();
 
     @Column
-    @OneToMany
+    @ManyToMany
     private List<User> friends = new LinkedList<>();
 
     public User() {

@@ -445,3 +445,7 @@ a:hover, a:focus {
     padding-left: 8px;
     padding-top: 8px;
 }
+
+h5 > a {
+    cursor: pointer;
+}
