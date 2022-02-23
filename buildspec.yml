@@ -18,9 +18,9 @@ phases:
       - mvn package -DskipTests
   post_build:
     commands:
-      - mv target/project2-0.0.1-SNAPSHOT.war ROOT.war
+      - mv target/project2-0.0.1-SNAPSHOT.war ../ROOT.war
+      - cd ../
 artifacts:
   files:
     - ROOT.war
     - ./.ebextensions/**/*
-
