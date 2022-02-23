@@ -34,9 +34,9 @@ async function postReview() {
     })
     .then(function(response) {
         if (!response.ok) {
-            console.log("error while posting review");
+            console.log("Error while posting review");
         } else {
-            location.href = 'backlog.html';
+            location.href = 'backlog.html?user_id=' + localStorage.getItem("currentUser");
         }
     });
 }

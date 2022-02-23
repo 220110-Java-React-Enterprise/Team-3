@@ -409,11 +409,24 @@ a:hover, a:focus {
     color: var(--font-light);
 }
 
-#users_list{
+#users_list {
     margin-top: 24px;
 }
 
 .user_item {
+    width: 1080px;
+    height: 120px;
+    background-color: var(--column-bg);
+    padding: 10px;
+    border-style: inset;
+    display: block;
+}
+
+#reviews_list {
+    width: 1080px;
+}
+
+.review_item {
     width: 1080px;
     height: 120px;
     background-color: var(--column-bg);

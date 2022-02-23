@@ -131,8 +131,8 @@ public class UserController {
     @RequestMapping(value = "/reviews/{userId}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<Review> getUserReviews(@PathVariable Integer userId) throws UserNotFoundException {
-        List<Review> result = new LinkedList<>();
-        User user = null;
+        List<Review> result;
+        User user;
         Optional<User> optionalUser = userRepo.findById(userId);
         if(optionalUser.isPresent()) {
             user = optionalUser.get();
@@ -151,6 +151,7 @@ public class UserController {
         if(optionalUser.isPresent()) {
             user = optionalUser.get();
             user.getReviews().add(reviewRepo.save(review));
+            userRepo.save(user);
         } else {
             throw new UserNotFoundException("User " + userId + " Not Found!");
         }
