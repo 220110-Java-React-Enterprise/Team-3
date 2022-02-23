@@ -21,3 +21,5 @@ function logout() {
 function backlog() {
     location.href = 'backlog.html?user_id=' + localStorage.getItem("currentUser");
 }
+
+var baseURL = "http://localhost:8080/";

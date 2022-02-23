@@ -2,7 +2,7 @@
 async function loadGame() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    let url = "http://localhost:8080/browse_games/" + urlParams.get("game_id");
+    let url = baseURL + "games/" + urlParams.get("game_id");
 
     let response = await fetch(url)
         .then((response) => response.json());
@@ -11,7 +11,14 @@ async function loadGame() {
     bg.style.backgroundImage = "linear-gradient(transparent, white 80%), "
         + "url(\"" + response.backgroundImage + "\")";
 
-    document.getElementById("game_review").href = "review.html?game_id=" + response.gameId;
+    if(localStorage.getItem("currentUser") != null) {
+        document.getElementById("game_review").innerHTML = "Leave a Review"
+        document.getElementById("game_review").href = "review.html?game_id=" + response.gameId;
+    } else {
+        document.getElementById("game_review").innerHTML = "Login to Write Reviews"
+        document.getElementById("game_review").href = "login.html"
+    }
+
 
     document.getElementById("game_title").innerHTML = response.name;
     document.getElementById("game_rating").innerHTML = response.rating + " / 100";

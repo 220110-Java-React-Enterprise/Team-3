@@ -1,6 +1,6 @@
 // Author: CJ, Jeffrey
 async function gamePopulation() {
-    let url = "http://localhost:8080/browse_games";
+    let url = baseURL + "games";
 
     let response = await fetch(url)
         .then((response) => response.json());

@@ -3,7 +3,7 @@ async function loadFriends() {
     if(localStorage.getItem("currentUser")) {
         document.getElementById("friends_column").style.visibility = "visible";
 
-        let url = "http://localhost:8080/users/friends/" + localStorage.getItem("currentUser");
+        let url = baseURL + "users/friends/" + localStorage.getItem("currentUser");
 
         let response = await fetch(url)
             .then((response) => response.json());

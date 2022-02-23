@@ -95,9 +95,7 @@ public class UserController {
         Optional<User> optionalUser = userRepo.findById(userId);
         if(optionalUser.isPresent()) {
             user = optionalUser.get();
-            if(user.getFriends() != null) {
-                result = user.getFriends();
-            }
+            result = user.getFriends();
         }
         else {
             throw new UserNotFoundException("User " + userId + " Not Found!");
@@ -138,12 +136,23 @@ public class UserController {
         Optional<User> optionalUser = userRepo.findById(userId);
         if(optionalUser.isPresent()) {
             user = optionalUser.get();
-            if(user.getReviews() != null) {
-                result = user.getReviews();
-            }
+            result = user.getReviews();
         } else {
             throw new UserNotFoundException("User " + userId + " Not Found!");
         }
         return result;
+    }
+
+    @RequestMapping(value = "/reviews/{userId}", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void newUserReview(@PathVariable Integer userId, @RequestBody Review review) throws UserNotFoundException {
+        User user = null;
+        Optional<User> optionalUser = userRepo.findById(userId);
+        if(optionalUser.isPresent()) {
+            user = optionalUser.get();
+            user.getReviews().add(reviewRepo.save(review));
+        } else {
+            throw new UserNotFoundException("User " + userId + " Not Found!");
+        }
     }
 }

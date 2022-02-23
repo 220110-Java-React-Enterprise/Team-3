@@ -16,7 +16,7 @@ async function login() {
         err.style.visibility = "hidden";
     }
 
-    let url = "http://localhost:8080/users/login";
+    let url = baseURL + "users/login";
     let user = {
         username: user_input,
         password: pass_input

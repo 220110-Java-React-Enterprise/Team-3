@@ -1,7 +1,7 @@
 async function loadBacklog() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    let url = "http://localhost:8080/users/" + urlParams.get("user_id");
+    let url = baseURL + "users/" + urlParams.get("user_id");
 
     let response = await fetch(url)
         .then((response) => response.json());
@@ -14,7 +14,7 @@ async function loadBacklog() {
         document.getElementById("header_options").innerHTML += "<h5><a onclick=\"addFriend()\">Add to Friends</a></h5>";
     }
 
-    url = "http://localhost:8080/users/reviews/" + urlParams.get("user_id");
+    url = baseURL + "users/reviews/" + urlParams.get("user_id");
     response = await fetch(url)
         .then((response) => response.json());
 
@@ -32,7 +32,7 @@ async function updateBio() {
 async function addFriend() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    let url = "http://localhost:8080/users/friends/" + localStorage.getItem("currentUser") + "/" + urlParams.get("user_id");
+    let url = baseURL + "users/friends/" + localStorage.getItem("currentUser") + "/" + urlParams.get("user_id");
 
     let response = await fetch(url, {method: 'POST'})
         .then((response) => response.json());

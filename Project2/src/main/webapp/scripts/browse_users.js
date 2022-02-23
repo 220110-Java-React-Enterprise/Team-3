@@ -1,6 +1,6 @@
 // Author: Trevor, Jeffrey
 async function getUsers() {
-    let url = "http://localhost:8080/users";
+    let url = baseURL + "users";
 
     let response = await fetch(url)
     .then((response) => response.json());

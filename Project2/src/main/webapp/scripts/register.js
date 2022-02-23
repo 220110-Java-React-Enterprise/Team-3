@@ -16,7 +16,7 @@ async function register() {
         err.style.visibility = "hidden";
     }
 
-    let url = "http://localhost:8080/users";
+    let url = baseURL + "users";
     let user = {
         username: user_input,
         password: pass_input
