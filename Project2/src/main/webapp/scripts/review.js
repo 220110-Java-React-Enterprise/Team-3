@@ -1,4 +1,4 @@
-// @Author Jeffrey
+// @Author Jeffrey, CJ
 async function prepareReview() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);

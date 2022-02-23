@@ -1,6 +1,6 @@
 // Author: Jeffrey
-//var baseURL = "http://localhost:8080/";
-var baseURL = "http://memorypak-env.eba-yabuibxn.us-east-1.elasticbeanstalk.com/";
+var baseURL = "http://localhost:8080/";
+//var baseURL = "http://memorypak-env.eba-yabuibxn.us-east-1.elasticbeanstalk.com/";
 
 function checkSession() {
     if(localStorage.getItem("currentUser")) {
