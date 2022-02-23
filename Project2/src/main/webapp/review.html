@@ -36,9 +36,17 @@
         </div>
         <div id="review_container">
             <div id="header_review"></div>
-            <textarea id="review_text" spellcheck="true" rows="10" cols="64"></textarea>
-            <button id="review_submit" type="button" onclick="postReview()">Submit</button>
-            <input id="review_rating" type="number" name="quantity" min="1" max="100">
+            <div id="review_inner_container">
+                <div id="review_top">
+                    <input id="review_rating" type="number" name="quantity" min="1" max="100">
+                    <p class="review_specs">/100</p>
+                </div>
+                <textarea id="review_text" onkeyup="countChars(this);" spellcheck="true" rows="10" cols="64"></textarea>
+                <div id="review_bottom">
+                    <p class="review_specs" id="currentCount"></p>
+                    <button id="review_submit" type="button" onclick="postReview()">Submit</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>
