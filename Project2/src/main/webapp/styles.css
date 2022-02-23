@@ -24,6 +24,10 @@ a:hover, a:focus {
     text-decoration: none;
 }
 
+.alpha_wrapper {
+    position: relative;
+}
+
 .error {
     color: #ff0000;
     visibility: hidden;
@@ -190,6 +194,10 @@ a:hover, a:focus {
     text-decoration: none;
 }
 
+#backlog {
+    cursor: pointer;
+}
+
 #game_carousel {
     background-color: #000;
     height: 300px;
@@ -247,6 +255,11 @@ a:hover, a:focus {
     display: block;
     height: 42px;
     width: 100%;
+    padding-left: 8px;
+}
+
+#register_username:focus, #register_password:focus, #login_username:focus, #login_password:focus {
+    outline: none;
 }
 
 .submit_btn {
@@ -290,7 +303,7 @@ a:hover, a:focus {
     margin-left: 1%;
 }
 
-.review_entry {
+.review_item {
     background-color: var(--column-bg);
     color: var(--font-light);
     border: outset;
@@ -298,7 +311,7 @@ a:hover, a:focus {
     padding-left: 5px;
 }
 
-.friend_entry {
+.friend_item {
     background-color: var(--column-bg);
     color: var(--font-light);
     border: outset;
@@ -310,21 +323,23 @@ a:hover, a:focus {
     margin-bottom: 0.5rem;
 }
 
-#title_header {
-    background-color: var(--column-header);
+#game_background {
+    background-size: cover;
     width: 1080px;
-    height: 48px;
+    height: 720px;
+    opacity: 0.2;
 }
 
-#title_header > h1 {
+#game_title {
     color: var(--font-light);
-    position: fixed;
-    margin-left: 8px;
 }
 
 #game_details {
-    background-color: var(--column-bg);
-    width: 1080px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 #game_cover {
@@ -333,17 +348,40 @@ a:hover, a:focus {
     margin: 10px;
 }
 
-.slim_column {
-    width: 260px;
+#game_review_btn {
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 10px;
+    margin: 20px;
+    margin-top: 4px;
+    margin-left: 0;
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    border-style: solid;
 }
 
-.large_column {
-    vertical-align: top;
-    padding-top: 10px;
+#game_screenshots {
+    width: 1080px;
+    position: absolute;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    justify-items: center;
+    top: 420px;
+    left: 0;
+}
+
+.game_screenshot {
+    width: 200px;
 }
 
 .details {
     color: var(--font-light);
+    padding-right: 24px;
 }
 
 #games_list {
@@ -357,14 +395,80 @@ a:hover, a:focus {
 }
 
 .game_item {
-
+    background-color: var(--column-bg);
+    padding: 10px;
+    border-style: solid;
 }
 
 .game_covers {
     width: 180px;
-    height: 240px;
+    height: 100px;
 }
 
 .game_title {
     color: var(--font-light);
+}
+
+#users_list {
+    margin-top: 24px;
+}
+
+.user_item {
+    width: 1080px;
+    height: 120px;
+    background-color: var(--column-bg);
+    padding: 10px;
+    border-style: inset;
+    display: block;
+}
+
+#reviews_list {
+    width: 1080px;
+}
+
+.review_item {
+    background-color: var(--column-bg);
+    padding: 10px;
+    border-style: inset;
+    display: block;
+}
+
+.review_rating {
+
+}
+
+.review_body {
+    word-break: break-word;
+}
+
+#header_username, #header_review {
+    width: 1080px;
+    height: 48px;
+    background-color: var(--column-header);
+    color: var(--font-light);
+}
+
+#header_username > h1, #header_review > h1 {
+    position: absolute;
+    padding-left: 8px;
+}
+
+#header_options {
+    width: 1080px;
+    height: 48px;
+    background-color: var(--column-bg);
+    color: var(--font-light);
+}
+
+#header_options > h5 {
+    padding-left: 8px;
+    padding-top: 8px;
+}
+
+h5 > a {
+    cursor: pointer;
+}
+
+#review_container {
+    width: 1080px;
 }

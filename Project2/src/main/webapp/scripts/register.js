@@ -1,3 +1,4 @@
+// Author: Jeffrey
 async function register() {
     let user_input = document.getElementById("register_username").value;
     let pass_input = document.getElementById("register_password").value;
@@ -15,7 +16,7 @@ async function register() {
         err.style.visibility = "hidden";
     }
 
-    let url = "http://localhost:8080/users";
+    let url = baseURL + "users";
     let user = {
         username: user_input,
         password: pass_input

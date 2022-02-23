@@ -1,7 +1,5 @@
 package com.revature.project2.models;
 
-import org.jetbrains.annotations.NotNull;
-
 import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,7 +30,11 @@ public class User {
 
     @Column
     @OneToMany
-    private List<Review> reviews = new LinkedList<>();;
+    private List<Review> reviews = new LinkedList<>();
+
+    @Column
+    @ManyToMany
+    private List<User> friends = new LinkedList<>();
 
     public User() {
     }
@@ -83,5 +85,13 @@ public class User {
 
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public List<User> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<User> friends) {
+        this.friends = friends;
     }
 }

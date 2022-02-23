@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="styles.css" type="text/css"/>
     <title>Memory Pak</title>
     <script src="scripts/session.js"></script>
+    <script src="scripts/backlog.js"></script>
 </head>
-<body onload="checkSession()">
+<body onload="checkSession(); loadBacklog()">
     <div id="content">
         <div class="header_small">
             <a href="index.html"><img class="nav-logo" src="img/logo.png"></a>
@@ -20,9 +21,9 @@
         <div id="navbar">
             <div id="navbar_left">
                 <ul id="nav">
-                    <li class="navbar_menu_item"><a href="backlog.html">Backlog</a></li>
                     <li class="navbar_menu_item"><a href="browse_games.html">Games</a></li>
                     <li class="navbar_menu_item"><a href="browse_users.html">Community</a></li>
+                    <li class="navbar_menu_item" id="backlog"><a onclick="backlog()">Backlog</a></li>
                 </ul>
             </div>
             <div id="navbar_right">
@@ -32,6 +33,9 @@
                 </form>
             </div>
         </div>
+        <div id="header_username"></div>
+        <div id="header_options"></div>
+        <div id="reviews_list"></div>
     </div>
 </body>
 </html>

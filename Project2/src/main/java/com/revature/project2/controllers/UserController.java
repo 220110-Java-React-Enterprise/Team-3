@@ -1,6 +1,7 @@
 package com.revature.project2.controllers;
 
 import com.revature.project2.exceptions.UserNotFoundException;
+import com.revature.project2.models.Review;
 import com.revature.project2.models.User;
 import com.revature.project2.repo.ReviewRepo;
 import com.revature.project2.repo.UserRepo;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,21 +39,17 @@ public class UserController {
         userRepo.save(user);
     }
 
-    @RequestMapping(value = "/{userId}")
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
     public User getUserById(@PathVariable Integer userId) throws UserNotFoundException {
         User result = null;
         Optional<User> optionalUser = userRepo.findById(userId);
-        if (optionalUser.isPresent())
+        if(optionalUser.isPresent()) {
             result = optionalUser.get();
-        else
+        } else {
             throw new UserNotFoundException("User " + userId + " Not Found!");
-
+        }
         return result;
-    }
-    @RequestMapping(value = "/{accountId}", method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public List<User> getAllUsers(){
-        return userRepo.findAll();
     }
 
     @RequestMapping(method = RequestMethod.PUT)
@@ -66,6 +64,12 @@ public class UserController {
         Optional<User> optionalUser = userRepo.findById(user.getUserId());
         userRepo.delete(user);
         //add in code to delete all reviews this person has
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<User> getAllUsers(){
+        return userRepo.findAll();
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -83,4 +87,73 @@ public class UserController {
         return user;
     }
 
+    @RequestMapping(value = "/friends/{userId}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<User> getFriends(@PathVariable Integer userId) throws UserNotFoundException {
+        List<User> result = new LinkedList<>();
+        User user;
+        Optional<User> optionalUser = userRepo.findById(userId);
+        if(optionalUser.isPresent()) {
+            user = optionalUser.get();
+            result = user.getFriends();
+        }
+        else {
+            throw new UserNotFoundException("User " + userId + " Not Found!");
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/friends/{userId}/{friendId}", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public boolean addFriend(@PathVariable Integer userId, @PathVariable Integer friendId) throws UserNotFoundException {
+        List<User> friends = new LinkedList<>();
+        User user, friend;
+        Optional<User> optionalUser = userRepo.findById(userId);
+        Optional<User> optionalFriend = userRepo.findById(friendId);
+        if(optionalUser.isPresent() && optionalFriend.isPresent()) {
+            user = optionalUser.get();
+            friend = optionalFriend.get();
+            friends = user.getFriends();
+        }
+        else {
+            throw new UserNotFoundException("User " + userId + " Not Found!");
+        }
+
+        if(friends.contains(friend)) {
+            return false;
+        }
+        friends.add(friend);
+        user.setFriends(friends);
+        userRepo.save(user);
+        return true;
+    }
+
+    @RequestMapping(value = "/reviews/{userId}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<Review> getUserReviews(@PathVariable Integer userId) throws UserNotFoundException {
+        List<Review> result;
+        User user;
+        Optional<User> optionalUser = userRepo.findById(userId);
+        if(optionalUser.isPresent()) {
+            user = optionalUser.get();
+            result = user.getReviews();
+        } else {
+            throw new UserNotFoundException("User " + userId + " Not Found!");
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/reviews/{userId}", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void newUserReview(@PathVariable Integer userId, @RequestBody Review review) throws UserNotFoundException {
+        User user = null;
+        Optional<User> optionalUser = userRepo.findById(userId);
+        if(optionalUser.isPresent()) {
+            user = optionalUser.get();
+            user.getReviews().add(reviewRepo.save(review));
+            userRepo.save(user);
+        } else {
+            throw new UserNotFoundException("User " + userId + " Not Found!");
+        }
+    }
 }

@@ -1,3 +1,4 @@
+// Author: Trevor, Jeffrey
 async function login() {
     let user_input = document.getElementById("login_username").value;
     let pass_input = document.getElementById("login_password").value;
@@ -15,7 +16,7 @@ async function login() {
         err.style.visibility = "hidden";
     }
 
-    let url = "http://localhost:8080/users/login";
+    let url = baseURL + "users/login";
     let user = {
         username: user_input,
         password: pass_input

@@ -9,7 +9,7 @@
     <script src="scripts/homepage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </head>
-<body onload="checkSession()">
+<body onload="checkSession(); loadReviews(); loadFriends()">
     <div id="content">
         <div class="header_small">
             <a href="index.html"><img class="nav-logo" src="img/logo.png"></a>
@@ -22,9 +22,9 @@
         <div id="navbar">
             <div id="navbar_left">
                 <ul id="nav">
-                    <li class="navbar_menu_item"><a href="backlog.html">Backlog</a></li>
                     <li class="navbar_menu_item"><a href="browse_games.html">Games</a></li>
                     <li class="navbar_menu_item"><a href="browse_users.html">Community</a></li>
+                    <li class="navbar_menu_item" id="backlog"><a onclick="backlog()">Backlog</a></li>
                 </ul>
             </div>
             <div id="navbar_right">
@@ -79,30 +79,10 @@
                 <div class="column_header">
                     <h1>Recent Reviews</h1>
                 </div>
-                <div class="review_entry">
-                    <h5>Review</h5>
-                    <p>10/10 Wow</p>
-                </div>
             </div>
             <div id="friends_column">
                 <div class="column_header">
                     <h1>Friends</h1>
-                </div>
-                <div class="friend_entry">
-                    <h5>Shabana</h5>
-                    <p>Status Message</p>
-                </div>
-                <div class="friend_entry">
-                    <h5>Jason</h5>
-                    <p>Status Message</p>
-                </div>
-                <div class="friend_entry">
-                    <h5>CJ</h5>
-                    <p>Status Message</p>
-                </div>
-                <div class="friend_entry">
-                    <h5>Trevor</h5>
-                    <p>Status Message</p>
                 </div>
             </div>
         </div>

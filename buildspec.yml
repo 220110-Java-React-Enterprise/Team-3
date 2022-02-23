@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 version: 0.2
 
 phases:
@@ -23,3 +24,30 @@ artifacts:
   files:
     - ROOT.war
     - .ebextensions/**/*
+=======
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  pre_build:
+    commands:
+#      - echo ======================================== PRE BUILD ========================================
+#      - pwd
+#      - ls -al
+      - cd ./Project2
+      - aws s3 cp s3://properties-bucket/application.properties src/main/resources/application.properties
+#      - ls -al
+#      - ls -al src/main/resources/
+  build:
+    commands:
+      - mvn package -DskipTests
+  post_build:
+    commands:
+      - mv target/project2-0.0.1-SNAPSHOT.war ROOT.war
+artifacts:
+  files:
+    - ROOT.war
+    - ./.ebextensions/**/*
+>>>>>>> 804716917aff3f440ea5889182cb4c399b1d4083

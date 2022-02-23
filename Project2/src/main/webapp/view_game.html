@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="styles.css" type="text/css"/>
     <title>Memory Pak</title>
     <script src="scripts/session.js"></script>
+    <script src="scripts/view_game.js"></script>
 </head>
-<body onload="checkSession()">
+<body onload="checkSession(); loadGame()">
     <div id="content">
         <div class="header_small">
             <a href="index.html"><img class="nav-logo" src="img/logo.png"></a>
@@ -20,9 +21,9 @@
         <div id="navbar">
             <div id="navbar_left">
                 <ul id="nav">
-                    <li class="navbar_menu_item"><a href="backlog.html">Backlog</a></li>
                     <li class="navbar_menu_item"><a href="browse_games.html">Games</a></li>
                     <li class="navbar_menu_item"><a href="browse_users.html">Community</a></li>
+                    <li class="navbar_menu_item" id="backlog"><a onclick="backlog()">Backlog</a></li>
                 </ul>
             </div>
             <div id="navbar_right">
@@ -32,22 +33,44 @@
                 </form>
             </div>
         </div>
-        <div id="title_header">
-            <h1>Title</h1>
-        </div>
-        <table id="game_details">
-            <tbody>
+        <div class="alpha_wrapper">
+            <div id="game_background"></div>
+            <table id="game_details">
                 <tr>
-                    <td class="slim_column">
-                        <img id="game_cover">
-                    </td>
-                    <td class="large_column">
-                        <h5 class="details">About</h5>
-                        <p class="details">wasdwasdwasdwasdwasdwasdwasdwasdwasdwasd</p>
+                    <td>
+                        <h1 id="game_title"></h1>
+                        <button id="game_review_btn"><a id="game_review"></a></button>
                     </td>
                 </tr>
-            </tbody>
-        </table>
+                <tr>
+                    <td>
+                        <h5 class="details">Metacritic</h5>
+                        <p class="details" id="game_rating"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5 class="details">Platforms</h5>
+                        <p class="details" id="game_platforms"></p>
+                    </td>
+                    <td>
+                        <h5 class="details">Genres</h5>
+                        <p class="details" id="game_genres"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5 class="details">Age Rating</h5>
+                        <p class="details" id="game_esrb"></p>
+                    </td>
+                    <td>
+                        <h5 class="details">Release Date</h5>
+                        <p class="details" id="game_release"></p>
+                    </td>
+                </tr>
+            </table>
+            <div id="game_screenshots"></div>
+        </div>
     </div>
 </body>
 </html>
