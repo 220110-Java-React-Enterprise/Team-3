@@ -27,10 +27,9 @@ async function register() {
         headers: {
             'Content-type': 'application/json;charset=utf-8'
         },
-        body: user
+        body: JSON.stringify(user)
     })
     .then(function(response) {
-        //console.log(response.status);
         if (!response.ok) {
             err.style.visibility = "visible";
             err.innerHTML = "Invalid username or password, or username already exists.";
