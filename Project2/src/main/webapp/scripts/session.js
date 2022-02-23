@@ -1,4 +1,6 @@
 // Author: Jeffrey
+var baseURL = "http://localhost:8080/";
+
 function checkSession() {
     if(localStorage.getItem("currentUser")) {
         document.getElementById("backlog").style.visibility = "visible";
@@ -22,4 +24,6 @@ function backlog() {
     location.href = 'backlog.html?user_id=' + localStorage.getItem("currentUser");
 }
 
-var baseURL = "http://localhost:8080/";
+function search() {
+    location.href = 'search_games.html?query=' + document.getElementById("search_bar").value;
+}
