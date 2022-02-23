@@ -505,6 +505,13 @@ a:hover, a:focus {
     padding-top: 8px;
 }
 
+#header_reviews {
+    width: 1080px;
+    height: 48px;
+    background-color: var(--column-header);
+    color: var(--font-light);
+}
+
 h5 > a {
     cursor: pointer;
 }

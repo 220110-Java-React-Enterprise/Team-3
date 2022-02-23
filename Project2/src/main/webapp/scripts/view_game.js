@@ -19,7 +19,6 @@ async function loadGame() {
         document.getElementById("game_review").href = "login.html"
     }
 
-
     document.getElementById("game_title").innerHTML = response.name;
     document.getElementById("game_rating").innerHTML = response.rating + " / 100";
     document.getElementById("game_platforms").innerHTML = response.platforms;
@@ -35,5 +34,27 @@ async function loadGame() {
         img.src = screenshot_urls[i];
         img.className = "game_screenshot";
         screenshots.append(img);
+    }
+
+    url = baseURL + "reviews/game/" + urlParams.get("game_id");
+    let reviews = await fetch(url)
+        .then((reviews) => reviews.json());
+
+    for(let i = reviews.length - 1; i >= 0; i--) {
+        let div = document.getElementById("game_reviews");
+        let reviewDiv = document.createElement("div");
+
+        reviewDiv.innerHTML += "<h4 class=\"review_game\">" + reviews[i].gameId.name + "</h4>";
+
+        if(reviews[i].rating != null) {
+            reviewDiv.innerHTML += "<h5 class=\"review_rating\">" + reviews[i].rating + " / 100</h5>";
+        }
+
+        if(reviews[i].review != null) {
+            reviewDiv.innerHTML += "<p class=\"review_body\">" + reviews[i].review + "</p>";
+        }
+
+        reviewDiv.className = "review_item";
+        div.appendChild(reviewDiv);
     }
 }
