@@ -27,7 +27,7 @@ async function register() {
         headers: {
             'Content-type': 'application/json;charset=utf-8'
         },
-        body: JSON.stringify(user)
+        body: user
     })
     .then(function(response) {
         //console.log(response.status);
