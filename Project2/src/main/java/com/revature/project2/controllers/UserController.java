@@ -10,6 +10,7 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,15 +38,15 @@ public class UserController {
         userRepo.save(user);
     }
 
-    @RequestMapping(value = "/{userId}")
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public User getUserById(@PathVariable Integer userId) throws UserNotFoundException {
         User result = null;
         Optional<User> optionalUser = userRepo.findById(userId);
-        if (optionalUser.isPresent())
+        if (optionalUser.isPresent()) {
             result = optionalUser.get();
-        else
+        } else {
             throw new UserNotFoundException("User " + userId + " Not Found!");
-
+        }
         return result;
     }
 
@@ -55,10 +56,22 @@ public class UserController {
         return userRepo.findAll();
     }
 
-    @RequestMapping(value = "/{accountId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/friends/{userId}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public List<User> getFriends(){
-        return userRepo.findAll();
+    public List<User> getFriends(@PathVariable Integer userId) throws UserNotFoundException {
+        List<User> result = new LinkedList<>();
+        User user;
+        Optional<User> optionalUser = userRepo.findById(userId);
+        if (optionalUser.isPresent()) {
+            user = optionalUser.get();
+            if(user.getFriends() != null) {
+                result = user.getFriends();
+            }
+        }
+        else {
+            throw new UserNotFoundException("User " + userId + " Not Found!");
+        }
+        return result;
     }
 
     @RequestMapping(method = RequestMethod.PUT)

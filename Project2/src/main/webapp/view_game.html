@@ -33,23 +33,43 @@
                 </form>
             </div>
         </div>
-        <div id="title_header">
-            <h1>Title</h1>
-        </div>
-        <div id="game_background">
+        <div class="alpha_wrapper">
+            <div id="game_background"></div>
             <table id="game_details">
-                <tbody>
-                    <tr>
-<!--                    <td class="slim_column">-->
-<!--                        <img id="game_cover">-->
-<!--                    </td>-->
-                        <td class="large_column">
-                            <h5 class="details">Genres</h5>
-                            <p class="details" id="genres"></p>
-                        </td>
-                    </tr>
-                </tbody>
+                <tr>
+                    <td>
+                        <h1 id="game_title"></h1>
+                        <button id="game_review_btn"><a id="game_review">Leave a Review</a></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5 class="details">Metacritic</h5>
+                        <p class="details" id="game_rating"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5 class="details">Platforms</h5>
+                        <p class="details" id="game_platforms"></p>
+                    </td>
+                    <td>
+                        <h5 class="details">Genres</h5>
+                        <p class="details" id="game_genres"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5 class="details">Age Rating</h5>
+                        <p class="details" id="game_esrb"></p>
+                    </td>
+                    <td>
+                        <h5 class="details">Release Date</h5>
+                        <p class="details" id="game_release"></p>
+                    </td>
+                </tr>
             </table>
+            <div id="game_screenshots"></div>
         </div>
     </div>
 </body>
