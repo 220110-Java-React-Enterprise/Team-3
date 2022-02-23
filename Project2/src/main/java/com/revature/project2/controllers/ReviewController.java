@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,17 +28,15 @@ public class ReviewController {
         this.gameRepo = gameRepo;
     }
 
-    @RequestMapping(value = "/{reviewId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{ref_id}")
     @ResponseStatus(HttpStatus.OK)
-    public Review getReviewsById(@PathVariable Integer ref_id) throws ReviewNotFoundException {
-        Review result = null;
+    public Review getReviewById(@PathVariable("ref_id") Integer ref_id) throws ReviewNotFoundException {
         Optional<Review> optionalReview = reviewRepo.findById(ref_id);
-        if(optionalReview.isPresent()) {
-            result = optionalReview.get();
+        if (optionalReview.isPresent()) {
+            return optionalReview.get();
         } else {
             throw new ReviewNotFoundException("Review " + ref_id + " Not Found!");
         }
-        return result;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -48,9 +45,9 @@ public class ReviewController {
         return reviewRepo.findAll();
     }
 
-    @RequestMapping(value = "/{reviewId}", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.OK)
-    public void updateReview(@RequestBody Review review, @PathVariable int ref_id) {
+    @RequestMapping(method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void updateReview(@RequestBody Review review) {
         reviewRepo.save(review);
     }
 

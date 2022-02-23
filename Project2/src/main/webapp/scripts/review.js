@@ -1,8 +1,8 @@
-// @Author Jeffrey
+// Author: Jeffrey, CJ
 async function prepareReview() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    let url = "http://localhost:8080/games/" + urlParams.get("game_id");
+    let url = baseURL + "games/" + urlParams.get("game_id");
 
     let response = await fetch(url)
         .then((response) => response.json());
