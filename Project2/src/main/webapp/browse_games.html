@@ -27,13 +27,17 @@
                 </ul>
             </div>
             <div id="navbar_right">
-                <form id="nav_search_bar">
+                <form id="nav_search_bar" onkeypress="return event.keyCode != 13">
                     <input id="search_bar" placeholder="Search for games or users...">
-                    <button id="submit_search" type="submit"><div id="magnifying_glass">&#9906;</div></button>
+                    <button id="submit_search" type="button" onclick="search()"><div id="magnifying_glass">&#9906;</div></button>
                 </form>
             </div>
         </div>
         <div id="games_list"></div>
+        <div id="nav_button_holder">
+            <button id="prev_btn" class="nav_buttons" onclick="prevPage()">Prev</button>
+            <button id="next_btn" class="nav_buttons" onclick="nextPage()">Next</button>
+        </div>
     </div>
 </body>
 </html>

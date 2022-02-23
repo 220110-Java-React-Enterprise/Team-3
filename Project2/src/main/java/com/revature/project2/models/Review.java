@@ -18,7 +18,7 @@ public class Review {
     @JoinColumn(name="game_id")
     private Game gameId;
 
-    @Column
+    @Column(columnDefinition = "VARCHAR(1000)")
     private String review;
 
     @Column

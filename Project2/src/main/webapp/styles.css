@@ -203,6 +203,26 @@ a:hover, a:focus {
     height: 300px;
 }
 
+.carousel-inner {
+    height: 290px;
+    background-size: cover;
+}
+
+.carousel-item {
+    height: 290px;
+}
+
+#game_one_img, #game_two_img, #game_three_img {
+    max-height: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#game_one_title, #game_two_title, #game_three_title {
+    text-shadow: 2px 2px 0 #000, 2px 2px 0 #000, 2px 2px 0 #000, 2px 2px 0 #000;
+}
+
 #banner {
     height: 280px;
 }
@@ -407,6 +427,26 @@ a:hover, a:focus {
 
 .game_title {
     color: var(--font-light);
+}
+
+#nav_button_holder {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.nav_buttons {
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 10px;
+    margin: 20px;
+    margin-top: 4px;
+    margin-left: 0;
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    border-style: solid;
 }
 
 #users_list {

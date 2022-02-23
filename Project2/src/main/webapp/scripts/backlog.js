@@ -39,10 +39,23 @@ async function loadBacklog() {
 
 async function updateBio() {
     let input = prompt("Enter your bio:");
-    if (!(input == null || input == "")) {
-        bio = input;
-    }
-    // PUT updated user here
+
+    let url = baseURL + "users/" + localStorage.getItem("currentUser");
+
+    let user = await fetch(url)
+        .then((user) => user.json());
+
+    user.bio = input;
+
+    url = baseURL + "users/"
+
+    await fetch(url, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(user)
+    })
 }
 
 async function addFriend() {

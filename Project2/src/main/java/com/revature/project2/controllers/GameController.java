@@ -58,4 +58,10 @@ public class GameController {
     public List<Game> getAllGames() {
         return gameRepo.findAll();
     }
+
+    @RequestMapping(value = "/search/{query}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Game> getGameByName(@PathVariable String query) throws GameNotFoundException {
+       return gameRepo.findByNameContainingIgnoreCase(query);
+    }
 }
