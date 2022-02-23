@@ -12,7 +12,13 @@ async function loadBacklog() {
     if(response.userId == localStorage.getItem("currentUser")) {
         document.getElementById("header_options").innerHTML += "<h5><a onclick=\"updateBio()\">Change Bio</a></h5>";
     } else if(localStorage.getItem("currentUser") != null) {
-        document.getElementById("header_options").innerHTML += "<h5><a onclick=\"addFriend()\">Add to Friends</a></h5>";
+        let checkFlag = checkFriend();
+        if(checkFlag){
+            document.getElementById("header_options").innerHTML += "<h5><a onclick=\"removeFriend()\">Remove from Friends</a></h5>";
+        }
+        else{
+            document.getElementById("header_options").innerHTML += "<h5><a onclick=\"addFriend()\">Add to Friends</a></h5>";
+        }
     }
 
     url = baseURL + "users/reviews/" + urlParams.get("user_id");
@@ -69,5 +75,16 @@ async function addFriend() {
 
     let response = await fetch(url, {method: 'POST'})
         .then((response) => response.json());
-    console.log(response);
 }
+
+async function checkFriend(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let url = baseURL + "users/friends/" + localStorage.getItem("currentUser") + "/" + urlParams.get("user_id");
+    let response = await fetch(url)
+        .then((response) => response.json());
+        console.log(response);
+    return response;
+}
+
+async function removeFriend(){};

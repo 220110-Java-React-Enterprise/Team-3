@@ -89,7 +89,7 @@ public class UserController {
     @RequestMapping(value = "/friends/{userId}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<User> getFriends(@PathVariable Integer userId) throws UserNotFoundException {
-        List<User> result = new LinkedList<>();
+        List<User> result;
         User user;
         Optional<User> optionalUser = userRepo.findById(userId);
         if(optionalUser.isPresent()) {
@@ -105,7 +105,7 @@ public class UserController {
     @RequestMapping(value = "/friends/{userId}/{friendId}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public boolean addFriend(@PathVariable Integer userId, @PathVariable Integer friendId) throws UserNotFoundException {
-        List<User> friends = new LinkedList<>();
+        List<User> friends;
         User user, friend;
         Optional<User> optionalUser = userRepo.findById(userId);
         Optional<User> optionalFriend = userRepo.findById(friendId);
@@ -125,6 +125,28 @@ public class UserController {
         user.setFriends(friends);
         userRepo.save(user);
         return true;
+    }
+
+    @RequestMapping(value = "/friends/{userId}/{friendId}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public boolean checkFriend(@PathVariable Integer userId, @PathVariable Integer friendId) throws UserNotFoundException {
+        List<User> friends;
+        User user, friend;
+        Optional<User> optionalUser = userRepo.findById(userId);
+        Optional<User> optionalFriend = userRepo.findById(friendId);
+        if(optionalUser.isPresent() && optionalFriend.isPresent()) {
+            user = optionalUser.get();
+            friend = optionalFriend.get();
+            friends = user.getFriends();
+        }
+        else {
+            throw new UserNotFoundException("User " + userId + " Not Found!");
+        }
+
+        if(friends.contains(friend)) {
+            return true;
+        }
+        return false;
     }
 
     @RequestMapping(value = "/reviews/{userId}", method = RequestMethod.GET)
