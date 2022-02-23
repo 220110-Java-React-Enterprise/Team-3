@@ -1,3 +1,4 @@
+// @Author Jeffrey, Trevor
 async function loadBacklog() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -21,18 +22,21 @@ async function loadBacklog() {
     for(let i = response.length - 1; i >= 0; i--) {
         let div = document.getElementById("reviews_list");
         let reviewDiv = document.createElement("div");
+        let a = document.createElement("a");
 
-        reviewDiv.innerHTML += "<h4 class=\"review_game\">" + response[i].gameId.name + "</h4>";
+        a.href = "view_game.html?game_id=" + response[i].gameId.gameId;
+        a.innerHTML += "<h4 class=\"review_game\">" + response[i].gameId.name + "</h4>";
 
         if(response[i].rating != null) {
-            reviewDiv.innerHTML += "<h5 class=\"review_rating\">" + response[i].rating + " / 100</h5>";
+            a.innerHTML += "<h5 class=\"review_rating\">" + response[i].rating + " / 100</h5>";
         }
 
         if(response[i].review != null) {
-            reviewDiv.innerHTML += "<p class=\"review_body\">" + response[i].review + "</p>";
+            a.innerHTML += "<p class=\"review_body\">" + response[i].review + "</p>";
         }
 
         reviewDiv.className = "review_item";
+        reviewDiv.appendChild(a);
         div.appendChild(reviewDiv);
     }
 }
