@@ -22,8 +22,10 @@ async function loadBacklog() {
         let div = document.getElementById("reviews_list");
         let reviewDiv = document.createElement("div");
 
+        reviewDiv.innerHTML += "<h4 class=\"review_game\">" + response[i].gameId.name + "</h4>";
+
         if(response[i].rating != null) {
-            reviewDiv.innerHTML += "<h5 class=\"review_rating\">" + response[i].rating + "</h5>";
+            reviewDiv.innerHTML += "<h5 class=\"review_rating\">" + response[i].rating + " / 100</h5>";
         }
 
         if(response[i].review != null) {
