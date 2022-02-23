@@ -194,6 +194,10 @@ a:hover, a:focus {
     text-decoration: none;
 }
 
+#backlog {
+    cursor: pointer;
+}
+
 #game_carousel {
     background-color: #000;
     height: 300px;
@@ -416,4 +420,28 @@ a:hover, a:focus {
     padding: 10px;
     border-style: inset;
     display: block;
+}
+
+#header_username {
+    width: 1080px;
+    height: 48px;
+    background-color: var(--column-header);
+    color: var(--font-light);
+}
+
+#header_username > h1 {
+    position: absolute;
+    padding-left: 8px;
+}
+
+#header_options {
+    width: 1080px;
+    height: 48px;
+    background-color: var(--column-bg);
+    color: var(--font-light);
+}
+
+#header_options > h5 {
+    padding-left: 8px;
+    padding-top: 8px;
 }

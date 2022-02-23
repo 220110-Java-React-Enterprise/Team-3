@@ -17,3 +17,7 @@ function logout() {
     localStorage.clear();
     location.href = 'login.html';
 }
+
+function backlog() {
+    location.href = 'backlog.html?user_id=' + localStorage.getItem("currentUser");
+}
