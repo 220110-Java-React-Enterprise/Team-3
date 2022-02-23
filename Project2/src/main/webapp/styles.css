@@ -435,6 +435,14 @@ a:hover, a:focus {
     display: block;
 }
 
+.review_rating {
+
+}
+
+.review_body {
+
+}
+
 #header_username, #header_review {
     width: 1080px;
     height: 48px;

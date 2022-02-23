@@ -18,7 +18,21 @@ async function loadBacklog() {
     response = await fetch(url)
         .then((response) => response.json());
 
-    console.log(response);
+    for(let i = response.length - 1; i >= 0; i--) {
+        let div = document.getElementById("reviews_list");
+        let reviewDiv = document.createElement("div");
+
+        if(response[i].rating != null) {
+            reviewDiv.innerHTML += "<h5 class=\"review_rating\">" + response[i].rating + "</h5>";
+        }
+
+        if(response[i].review != null) {
+            reviewDiv.innerHTML += "<p class=\"review_body\">" + response[i].review + "</p>";
+        }
+
+        reviewDiv.className = "review_item";
+        div.appendChild(reviewDiv);
+    }
 }
 
 async function updateBio() {
