@@ -74,6 +74,8 @@ async function addFriend() {
 
     let response = await fetch(url, {method: 'POST'})
         .then((response) => response.json());
+
+    location.href = 'backlog.html?user_id=' + urlParams.get("user_id");
 }
 
 async function removeFriend() {
@@ -83,6 +85,8 @@ async function removeFriend() {
 
     let response = await fetch(url, {method: 'DELETE'})
         .then((response) => response.json());
+
+    location.href = 'backlog.html?user_id=' + urlParams.get("user_id");
 }
 
 async function checkFriend() {
