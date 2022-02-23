@@ -102,6 +102,31 @@ public class UserController {
         return result;
     }
 
+    @RequestMapping(value = "/friends/{userId}/{friendId}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.OK)
+    public boolean removeFriend(@PathVariable Integer userId, @PathVariable Integer friendId) throws UserNotFoundException {
+        List<User> friends;
+        User user, friend;
+        Optional<User> optionalUser = userRepo.findById(userId);
+        Optional<User> optionalFriend = userRepo.findById(friendId);
+        if(optionalUser.isPresent() && optionalFriend.isPresent()) {
+            user = optionalUser.get();
+            friend = optionalFriend.get();
+            friends = user.getFriends();
+        }
+        else {
+            throw new UserNotFoundException("User " + userId + " Not Found!");
+        }
+
+        if(!friends.contains(friend)) {
+            return false;
+        }
+        friends.remove(friend);
+        user.setFriends(friends);
+        userRepo.save(user);
+        return true;
+    }
+
     @RequestMapping(value = "/friends/{userId}/{friendId}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public boolean addFriend(@PathVariable Integer userId, @PathVariable Integer friendId) throws UserNotFoundException {

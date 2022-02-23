@@ -1,4 +1,4 @@
-// @Author Jeffrey, Trevor
+// Author: Jeffrey, Trevor
 async function loadBacklog() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -12,11 +12,10 @@ async function loadBacklog() {
     if(response.userId == localStorage.getItem("currentUser")) {
         document.getElementById("header_options").innerHTML += "<h5><a onclick=\"updateBio()\">Change Bio</a></h5>";
     } else if(localStorage.getItem("currentUser") != null) {
-        let checkFlag = checkFriend();
-        if(checkFlag){
+        if(await checkFriend()) {
             document.getElementById("header_options").innerHTML += "<h5><a onclick=\"removeFriend()\">Remove from Friends</a></h5>";
         }
-        else{
+        else {
             document.getElementById("header_options").innerHTML += "<h5><a onclick=\"addFriend()\">Add to Friends</a></h5>";
         }
     }
@@ -77,14 +76,22 @@ async function addFriend() {
         .then((response) => response.json());
 }
 
-async function checkFriend(){
+async function removeFriend() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let url = baseURL + "users/friends/" + localStorage.getItem("currentUser") + "/" + urlParams.get("user_id");
-    let response = await fetch(url)
+
+    let response = await fetch(url, {method: 'DELETE'})
         .then((response) => response.json());
-        console.log(response);
-    return response;
 }
 
-async function removeFriend(){};
+async function checkFriend() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let url = baseURL + "users/friends/" + localStorage.getItem("currentUser") + "/" + urlParams.get("user_id");
+
+    let response = await fetch(url)
+        .then((response) => response.json());
+
+    return response;
+}
