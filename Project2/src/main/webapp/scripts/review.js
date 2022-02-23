@@ -40,3 +40,7 @@ async function postReview() {
         }
     });
 }
+
+function countChars(obj){
+    document.getElementById("currentCount").innerHTML = "Character Count: " + obj.value.length + "/1000";
+}
