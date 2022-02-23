@@ -14,6 +14,7 @@ import java.util.Optional;
  * @Author Trevor, Jeffrey, CJ
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/games")
 public class GameController {
     public final GameRepo gameRepo;
