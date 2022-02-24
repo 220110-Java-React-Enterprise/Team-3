@@ -2,6 +2,7 @@
 var baseURL = "http://localhost:8080/";
 //var baseURL = "http://memorypak-env.eba-yabuibxn.us-east-1.elasticbeanstalk.com/";
 
+// Changes visibility of UI elements based on login status
 function checkSession() {
     if(localStorage.getItem("currentUser")) {
         document.getElementById("backlog").style.visibility = "visible";

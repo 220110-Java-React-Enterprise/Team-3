@@ -1,4 +1,6 @@
 // Author: Trevor, Jeffrey
+
+// Validates the input username and password and saves user to localStorage if successful
 async function login() {
     let user_input = document.getElementById("login_username").value;
     let pass_input = document.getElementById("login_password").value;

@@ -1,4 +1,6 @@
-// @Author Jeffrey
+// Author: Jeffrey
+
+// Gets result query and loads into page
 async function queryPopulation() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);

@@ -1,4 +1,6 @@
 // Author: Jeffrey
+
+// Creates a new user based on given input if username doesn't already exist
 async function register() {
     let user_input = document.getElementById("register_username").value;
     let pass_input = document.getElementById("register_password").value;

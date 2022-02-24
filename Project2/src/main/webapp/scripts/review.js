@@ -1,4 +1,6 @@
 // Author: Jeffrey, CJ
+
+// Gets game name for review
 async function prepareReview() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -10,6 +12,7 @@ async function prepareReview() {
     document.getElementById("header_review").innerHTML = `<h1>Write a review for ${response.name}</h1>`;
 }
 
+// Creates new review for current user
 async function postReview() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);

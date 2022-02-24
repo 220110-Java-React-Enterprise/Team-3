@@ -1,4 +1,6 @@
 // Author: Trevor, Jeffrey
+
+// Gets all users and displays them on page
 async function getUsers() {
     let url = baseURL + "users";
 

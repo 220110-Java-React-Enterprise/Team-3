@@ -1,4 +1,6 @@
 // Author: CJ, Jeffrey
+
+// Gets game by ID and loads game info into page
 async function loadGame() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);

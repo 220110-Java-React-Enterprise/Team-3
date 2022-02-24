@@ -1,4 +1,6 @@
 // Author: Jeffrey, Trevor
+
+// Gets reviews by user and builds HTML for it
 async function loadBacklog() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -46,6 +48,7 @@ async function loadBacklog() {
     }
 }
 
+// Prompts user for new bio and updates user with new bio message
 async function updateBio() {
     let input = prompt("Enter your bio:");
 
@@ -67,6 +70,7 @@ async function updateBio() {
     })
 }
 
+// Adds the user of the current page to friends of the currently logged in user
 async function addFriend() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -78,6 +82,7 @@ async function addFriend() {
     location.href = 'backlog.html?user_id=' + urlParams.get("user_id");
 }
 
+// Removes the user of the current page from friends of the currently logged in user
 async function removeFriend() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);

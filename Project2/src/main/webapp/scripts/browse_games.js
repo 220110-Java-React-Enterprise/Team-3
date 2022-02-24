@@ -1,6 +1,8 @@
 // Author: CJ, Jeffrey
+
 var page;
 
+// Gets all games and displays them in groups of 20
 async function gamePopulation() {
     let url = baseURL + "games";
 

@@ -1,4 +1,6 @@
 // Author: Jeffrey, Trevor
+
+// Randomly gets 3 games and displays them on the carousel
 async function populateCarousel() {
     let url = baseURL + "games";
 
@@ -24,6 +26,7 @@ async function populateCarousel() {
     document.getElementById("game_three_title").innerHTML = response[rnd].name;
 }
 
+// Gets all reviews and displays the 10 most recently created
 async function loadReviews() {
     let url = baseURL + "reviews";
 
@@ -52,6 +55,7 @@ async function loadReviews() {
     }
 }
 
+// Gets all friends of the currently logged in user and displays them on page
 async function loadFriends() {
     if(localStorage.getItem("currentUser")) {
         document.getElementById("friends_column").style.visibility = "visible";
